@@ -161,7 +161,7 @@ export const Events = () => {
             <MuModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title={isEditMode ? "Edit Task" : "Create Task"}
+                title={isEditMode ? "Edit Event" : "Create Event"}
                 type={"success"}
                 onDone={() => TaskRef.current?.handleSubmitExternally()}
             >

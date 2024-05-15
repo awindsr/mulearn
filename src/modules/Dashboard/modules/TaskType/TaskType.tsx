@@ -178,7 +178,7 @@ export const TaskType = () => {
             <MuModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title={isEditMode ? "Edit Task" : "Create Task"}
+                title={isEditMode ? "Edit Task Type" : "Create Task Type"}
                 type={"success"}
                 onDone={() => TaskRef.current?.handleSubmitExternally()}
             >
