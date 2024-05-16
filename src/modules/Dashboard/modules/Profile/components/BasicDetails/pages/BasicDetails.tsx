@@ -121,7 +121,7 @@ const BasicDetails = (props: Props) => {
                         })
                     ) : (
                         <p>
-                            No Interest Groups to Selected, You need you reach
+                            No Interest Groups to Select, You need to reach
                             Level 4 to Select
                         </p>
                     )}
