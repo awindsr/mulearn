@@ -14,150 +14,102 @@ import { webdev } from "../data/web-dev";
 import { datascience } from "../data/datascience";
 import { gamedev } from "../data/gamedev";
 import { devops } from "../data/devops";
+import { uiuxDesign } from "../data/uiux";
 import { cybersecurity } from "../data/cybersecurity";
 import { useEffect, useState } from "react";
+import { artificialIntelligence } from "../data/ai";
+import { arVr } from "../data/arvr";
+import { hr } from "../data/hr";
+import { digitalMarketing } from "../data/digitalmarketing";
+import { productManagement } from "../data/productmanagement";
+import { entrepreneurship } from "../data/entrepreneurship";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Dashboard() {
   const { id } = useParams();
 
-  const mentors = [
-    {
-      name: "Shameem Hyder",
-      role: "Founder & CEO, Programmer",
-      imageUrl: null,
-    },
-    {
-      name: "Arjun A G",
-      role: "Software Engineer (Lead/Sr), Programmer",
-      imageUrl: null,
-    },
-    {
-      name: "Altaf Shaikh",
-      role: "Web Development",
-      imageUrl: null,
-    },
-    {
-      name: "Ganesh Kumar",
-      role: "Web Development",
-      imageUrl: null,
-    },
-    {
-      name: "Mujeed Rahman",
-      role: "Web Development",
-      imageUrl: null,
-    },
-  ];
-
-  const groupLeads = [
-    {
-      name: "Aswini Anil",
-      role: "Mobile Engineering College,Thiruvananthapuram",
-      imageUrl: "/placeholder.svg?height=48&width=48",
-    },
-    {
-      name: "Adil S",
-      role: "Govt Engineering College,Idukki",
-      imageUrl: "/placeholder.svg?height=48&width=48",
-    },
-  ];
-
-  const opportunities = [
-    "Full Stack Web Developer",
-    "Android Developer",
-    "Frontend Developer",
-    "Web Designer",
-    "Backend Developer",
-  ];
-
-  const topPeople = [
-    { name: "Alex Simons", link: "Click Here" },
-    { name: "Ty Bertram", link: "Click Here" },
-    { name: "Guillermo Rauch", link: "Click Here" },
-    { name: "FreeCodeCamp", link: "Click Here" },
-    { name: "100DaysOfCode", link: "Click Here" },
-  ];
-
-  const topBlogs = [
-    { name: "A List Apart", link: "Click Here" },
-    { name: "Codrops", link: "Click Here" },
-    { name: "CSS-Tricks", link: "Click Here" },
-  ];
-
-  const keywords = [
-    "APIs",
-    "Algorithm",
-    "API",
-    "Infrastructure",
-    "Deployment",
-    "Domain Name",
-    "HTTP",
-    "SSL",
-    "DNS",
-    "Domain Name",
-    "MVC",
-    "SSL",
-  ];
-
-  // code for learning circles start
-  const learningCircles = [
-    {
-      id: 1,
-      title: "Title 1",
-      description:
-        "In feugiat orci condimentum. Integer suscipit sollicitudin odis, non vulputat neque tempus ut.",
-      date: "12 Dec 2024",
-      time: "10:00 AM",
-      location: "Room 101",
-    },
-    {
-      id: 2,
-      title: "Title 2",
-      description:
-        "In feugiat orci condimentum. Integer suscipit sollicitudin odis, non vulputat neque tempus ut.",
-      date: "13 Dec 2024",
-      time: "2:00 PM",
-      location: "Room 102",
-    },
-    {
-      id: 3,
-      title: "Title 3",
-      description:
-        "In feugiat orci condimentum. Integer suscipit sollicitudin odis, non vulputat neque tempus ut.",
-      date: "14 Dec 2024",
-      time: "3:00 PM",
-      location: "Room 103",
-    },
-    {
-      id: 4,
-      title: "Title 4",
-      description:
-        "In feugiat orci condimentum. Integer suscipit sollicitudin odis, non vulputat neque tempus ut.",
-      date: "15 Dec 2024",
-      time: "4:00 PM",
-      location: "Room 104",
-    },
-    //create more objects
-    {
-      id: 5,
-      title: "Title 5",
-      description:
-        "In feugiat orci condimentum. Integer suscipit sollicitudin odis, non vulputat neque tempus ut.",
-      date: "16 Dec 2024",
-      time: "5:00 PM",
-      location: "Room 105",
-    },
-    {
-      id: 6,
-      title: "Title 6",
-      description:
-        "In feugiat orci condimentum. Integer suscipit sollicitudin odis, non vulputat neque tempus ut.",
-      date: "17 Dec 2024",
-      time: "6:00 PM",
-      location: "Room 106",
-    },
-  ];
-  // code for learning circles end
+  // New state to hold the dynamic data
+  const [data, setData] = useState(null);
   const [ismobile, setismobile] = useState(true);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsPerView = ismobile ? 1 : 3;
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = prevIndex + 1;
+      return nextIndex >= data.learningCircles.length ? 0 : nextIndex;
+    });
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = prevIndex - 1;
+      return nextIndex < 0 ? data.learningCircles.length - 1 : nextIndex;
+    });
+  };
+
+  // Calculate visible items based on current viewport
+  const getVisibleItems = () => {
+    const items = [...data.learningCircles];
+    const visibleItems = [];
+
+    for (let i = 0; i < itemsPerView; i++) {
+      const index = (currentIndex + i) % items.length;
+      visibleItems.push(items[index]);
+    }
+
+    return visibleItems;
+  };
+
+  useEffect(() => {
+    // Load data based on the id
+    const loadData = () => {
+      switch (id) {
+        case "web-dev":
+          setData(webdev);
+          break;
+        case "datascience":
+          setData(datascience);
+          break;
+        case "gamedev":
+          setData(gamedev);
+          break;
+        case "devops":
+          setData(devops);
+          break;
+        case "cybersecurity":
+          setData(cybersecurity);
+          break;
+        case "uiux":
+          setData(uiuxDesign);
+          break;
+        // case "ai":
+        //   setData(artificialIntelligence);
+        //   break;
+        case "arvr":
+          setData(arVr);
+          break;
+        case "hr":
+          setData(hr);
+          break;
+        case "digitalmarketing":
+          setData(digitalMarketing);
+          break;
+        case "productmanagement":
+          setData(productManagement);
+          break;
+        case "entrepreneurship":
+          setData(entrepreneurship);
+          break;
+        default:
+          setData(null); // Handle unknown id
+      }
+    };
+
+    loadData();
+  }, [id]); // Dependency array includes id to reload data on change
+
   useEffect(() => {
     const handleResize = () => {
       setismobile(window.innerWidth <= 768);
@@ -167,46 +119,29 @@ export default function Dashboard() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  if (!data) return <div>Loading...</div>; // Optional loading state
+
   return (
-    <div className={`${styles.container} min-h-screen w-full flex-1`}>
-      {/* new code start */}
+    <div
+      className={`${styles.container} min-h-screen overflow-x-hidden w-full flex-1`}>
       <div className="flex text-left w-full mb-8">
         <div className={styles.contentSide}>
-          <h1 className={styles.title}>
-            {id === "web-dev"
-              ? webdev.title
-              : id === "datascience"
-              ? datascience.title
-              : id === "gamedev"
-              ? gamedev.title
-              : id === "devops"
-              ? devops.title
-              : id === "cybersecurity"
-              ? cybersecurity.title
-              : "Interest Group"}
-          </h1>
+          <h1 className={styles.title}>{data.title}</h1>
 
-          <p className={styles.description}>
-            Ever wondered how web development works? Learn everything about how
-            all your get lectures from A to Z. Direct student's work management
-            system along with scheduling and time save lectures. Our development
-            team has taken care and understand your needs to providing better
-            data functionalities.
-          </p>
+          <p className={styles.description}>{data.introduction?.description}</p>
 
           <div className={styles.offerInfo}>
-            <span className={styles.highlight}>Offers From:</span> Display Till
-            All Sit Record Lobby
+            <span className={styles.highlight}>Office Hours</span>{" "}
+            {data.introduction.schedules?.officeHours || "TBA"}
             <br />
-            <span className={styles.highlight}>Last Week Record:</span> Today
-            And Till Storage Week
+            <span className={styles.highlight}>Think Tank Meeting</span>{" "}
+            {data.introduction.schedules?.thinkTankMeeting || "TBA"}
           </div>
 
           <button className={styles.primaryButton}>Discover More</button>
         </div>
         <div
-          className={`flex-1 lg: min-w-[300px] flex justify-center items-center max-lg:hidden`}
-        >
+          className={`flex-1 lg: min-w-[300px] flex justify-center items-center max-lg:hidden`}>
           <div className={styles.heroImage}>
             <img
               src={fvimg}
@@ -216,138 +151,117 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="py-4 md:py-8">
-        {/* Section Title */}
-        <h2 className="text-2xl font-bold text-[#FF6B35] my-4 md:my-6 ml-0 text-left text-nowrap">
-          Community Partners
-        </h2>
+      {data.communityPartners && (
+        <div className="py-4 md:py-8 ">
+          <h2 className="text-2xl font-bold text-[#FF6B35] my-4 md:my-6 ml-0 text-left text-nowrap ">
+            Community Partners
+          </h2>
 
-        <div className="flex max-sm:flex-col gap-8">
-          {/* Placeholder Boxes */}
-          {[...Array(4)].map((_, index) => (
-            <div
-              style={{
-                boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.3)",
-              }}
-              key={index}
-              className="flex flex-col items-center  rounded-lg p-4 md:p-8"
-            >
-              <img
-                className="w-full max-w-[200px]"
-                src={pygammerLogo}
-                alt="Pygrammers Logo"
-              />
-            </div>
-          ))}
+          <div className="flex max-sm:flex-col gap-8 w-full flex-wrap justify-center">
+            {data.communityPartners.map((partner, index) => (
+              <div
+                key={partner.name}
+                className="flex flex-wrap items-center  rounded-lg p-4 ">
+                <img
+                  className="w-[100px] object-fill "
+                  src={partner.image}
+                  alt={partner.name}
+                  width={200}
+                  height={200}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* learning circle div */}
-      <div className="w-full py-4 md:py-8">
-        <h2 className="text-2xl font-bold text-[#FF6B35] my-4 md:my-6 ml-0 text-left">
-          Learning Circles
-        </h2>
+      {data.learningCircles && (
+        <div className="w-full py-4 md:py-8 md:px-8">
+          <h2 className="text-2xl font-bold text-[#FF6B35] my-4 md:my-6 ml-0 text-left">
+            Learning Circles
+          </h2>
 
-        <div className="">
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={ismobile ? 1 : 3}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            modules={[Navigation, Pagination]}
-          >
-            {learningCircles.map((circle) => (
-              <SwiperSlide>
-                <div
-                  style={{
-                    boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.3)",
-                  }}
-                  key={circle.id}
-                  className="w-full m-8 flex-shrink-0 bg-white rounded-lg p-6"
-                >
-                  <h3 className="text-xl font-semibold mb-2">{circle.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    {circle.description}
-                  </p>
-
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <BiCalendar className="w-5 h-5" />
-                      <span className="text-sm">{circle.date}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <BiTime className="w-5 h-5" />
-                      <span className="text-sm">{circle.time}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <BiMap className="w-5 h-5" />
-                      <span className="text-sm">{circle.location}</span>
+          <div className="relative">
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-300 ease-out gap-5"
+                style={{
+                  transform: `translateX(-${
+                    currentIndex * (100 / itemsPerView)
+                  }%)`,
+                }}>
+                {getVisibleItems().map((circle) => (
+                  <div
+                    key={circle.id}
+                    className="w-full flex-shrink-0 min-w-0"
+                    style={{ flex: `0 0 ${100 / itemsPerView}%` }}>
+                    <div
+                      style={{
+                        boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.1)",
+                      }}
+                      className="bg-white rounded-lg p-6 m-2">
+                      <h3 className="text-xl font-semibold mb-2">
+                        {circle.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-4">
+                        {circle.description}
+                      </p>
+                      <div className="space-y-2 mb-4">
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <BiCalendar className="w-5 h-5" />
+                          <span className="text-sm">{circle.date}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <BiTime className="w-5 h-5" />
+                          <span className="text-sm">{circle.time}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <BiMap className="w-5 h-5" />
+                          <span className="text-sm">{circle.location}</span>
+                        </div>
+                      </div>
+                      <button className="bg-[#FF6B35] text-white px-4 py-2 rounded hover:bg-[#e85f2f] transition-colors">
+                        Join Now
+                      </button>
                     </div>
                   </div>
-
-                  <button className="bg-[#FF6B35] text-white px-4 py-2 rounded hover:bg-[#e85f2f] transition-colors">
-                    Join Now
-                  </button>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
-
-      {/* muchallengs */}
-      <div className="py-4 md:py-8 w-full">
-        <h2 className="text-2xl font-bold text-[#FF6B35] my-4 md:my-6 ml-0 text-left">
-          µ Challenges
-        </h2>
-        <div className="flex max-sm:flex-col gap-8 w-full">
-          {[...Array(3)].map((_, index) => (
-            <div
-              style={{
-                boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.3)",
-              }}
-              key={index}
-              className="flex flex-col items-center justify-center rounded-lg p-4 md:p-8 w-full gap-4 md:gap-8"
-            >
-              <div className="text-2xl md:text-4xl font-semibold text-[#FF6B35] text-center pt-12">
-                Preview card <br />
-                component
-              </div>
-              <div className="flex justify-end w-full">
-                <button className="bg-[#FF6B35] text-white px-3 py-1.5 md:px-4 md:py-2 rounded hover:bg-[#e85f2f] transition-colors">
-                  Join Now
-                </button>
+                ))}
               </div>
             </div>
-          ))}
+
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors -ml-4 z-10">
+              <ChevronLeft className="w-6 h-6 text-gray-600" />
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors -mr-4 z-10">
+              <ChevronRight className="w-6 h-6 text-gray-600" />
+            </button>
+          </div>
         </div>
-      </div>
+      )}
+
       <Section
         className="text-left flex flex-col justify-start items-start py-4 md:py-8 space-y-4 md:space-y-8"
-        title="Pre-requisites"
-      >
-        <p className="text-gray-600">
-          Lorem ipsum dolor rt Suspendisse vitae risus euismod, viverra eros ut,
-          aliquet nunc. Proin aliquet malesuada tincidunt. Sed euismod erat sit
-          amet tortor rhoncus suscipit. Etiam sed enim non felis auctor cursus.
-          Integer nec augue nec purus auctor tristique. Mauris at ullamcorper
-          leo. Sed vitae metus felis. Nullam tincidunt ipsum sit amet nisl
-          condimentum sollicitudin. Nam non mauris ut odio convallis convallis.
-          Ut laoreet, lorem eget suscipit pharetra, purus felis pharetra odio,
-          non tincidunt erat lorem at orci. Sed et augue auctor, efficitur ante
-          nec, cursus felis. Pellentesque et nunc vel nunc accumsan fermentum.
-          Cras in lorem euismod, condimentum urna at, fermentum sapien.
-        </p>
+        title="Pre-requisites">
+        <p className="text-gray-600">{data.prerequisites.description}</p>
+        {/* <p className="text-gray-600">
+          {data.prerequisites?.map((prerequisite) => (
+            <span key={prerequisite} className="text-gray-600">
+              {prerequisite},{" "} 
+            </span>
+          ))}
+        </p> */}
       </Section>
 
-      {/* learning path */}
       <Section className="w-full" title="Learning Path">
         <div className=" max-w-6xl mx-auto px-4 py-8">
           <div className="w-full border rounded-lg overflow-hidden bg-white">
             <iframe
-              src={`https://roadmap.sh/r/embed?id=6738b39ff20970fd484189ca`}
+              src={data.learningPath?.embedUrl}
               width="100%"
               height="900px"
               frameBorder="0"
@@ -356,7 +270,6 @@ export default function Dashboard() {
           </div>
         </div>
       </Section>
-      {/* new code end */}
 
       <div className="max-w-7xl mx-auto space-y-4 md:space-y-8">
         <Section title="Mentor Details" className="space-y-4 md:space-y-6">
@@ -366,7 +279,7 @@ export default function Dashboard() {
             hours and get all your doubts cleared.
           </p>
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {mentors.map((mentor) => (
+            {data.mentors?.map((mentor) => (
               <ProfileCard key={mentor.name} {...mentor} />
             ))}
           </div>
@@ -381,7 +294,7 @@ export default function Dashboard() {
               interests.
             </p>
             <div className="space-y-4 mt-4">
-              {groupLeads.map((lead) => (
+              {data.interestGroupLeads?.leads.map((lead) => (
                 <ProfileCard key={lead.name} {...lead} />
               ))}
             </div>
@@ -389,12 +302,12 @@ export default function Dashboard() {
 
           <Section title="Interest Group Leaderboard">
             <p className="text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur vitae duis eu turpis
-              vitae. Ut aliquet tristique ullamcorper. Orci varius natoque
-              penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              Integer dictum vel purus ut porta.
+              Stay engaged and climb the leaderboard as you complete projects
+              and participate in discussions.
             </p>
-            <div className="aspect-square bg-white rounded-lg border mt-4" />
+            {data.interestGroupLeaderboard && (
+              <div className="aspect-square bg-white rounded-lg border mt-4" />
+            )}
           </Section>
         </div>
 
@@ -406,9 +319,9 @@ export default function Dashboard() {
               skill.
             </p>
             <ul className="list-disc pl-5 space-y-1">
-              {opportunities.map((opportunity) => (
-                <li key={opportunity} className="text-gray-600">
-                  {opportunity}
+              {data.opportunities?.map((opportunity) => (
+                <li key={opportunity.title} className="text-gray-600">
+                  {opportunity.title} - {opportunity.description}
                 </li>
               ))}
             </ul>
@@ -420,11 +333,13 @@ export default function Dashboard() {
               learn as well as stay updated!
             </p>
             <ul className="space-y-1">
-              {topPeople.map((person) => (
+              {data.peopleToFollow?.map((person) => (
                 <li key={person.name} className="text-gray-600">
                   {person.name} -{" "}
-                  <a href="#" className="text-blue-600 hover:underline">
-                    {person.link}
+                  <a
+                    href={person.link}
+                    className="text-[#ff6b00] hover:underline">
+                    click here
                   </a>
                 </li>
               ))}
@@ -438,11 +353,13 @@ export default function Dashboard() {
               lots of them!
             </p>
             <ul className="space-y-1">
-              {topBlogs.map((blog) => (
+              {data.blogsToFollow?.map((blog) => (
                 <li key={blog.name} className="text-gray-600">
                   {blog.name} -{" "}
-                  <a href="#" className="text-blue-600 hover:underline">
-                    {blog.link}
+                  <a
+                    href={blog.link}
+                    className="text-[#ff6b00] hover:underline">
+                    click here
                   </a>
                 </li>
               ))}
@@ -455,7 +372,7 @@ export default function Dashboard() {
             Listed below are the top keywords that you should be looking out for
             while searching through internet!
           </p>
-          <Keywords keywords={keywords} />
+          <Keywords keywords={data.topKeywords} />
         </Section>
       </div>
     </div>

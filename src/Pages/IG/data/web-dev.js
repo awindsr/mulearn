@@ -10,54 +10,88 @@ export const webdev = {
     },
   },
   communityPartners: [
-    "Pygrammers",
-    "Engagesport",
-    "Reflections",
-    "Faya",
-    "OpenFintech",
-    "GitHub",
-    "Elixir Labs",
-    "Open Grad",
-    "Softnotions",
-    "Hamon Solutions",
-    "Alokin",
+    { name: "Pygrammers", image: "/assets/IG/Web Development/Community Partners/Pygrammers.jpg" },
+    { name: "Engagesport", image: "/assets/IG/Web Development/Community Partners/Engagespot.jpg" },
+    { name: "Reflections", image: "/assets/IG/Web Development/Community Partners/Reflections.jpg" },
+    { name: "Faya", image: "/assets/IG/Web Development/Community Partners/Faya.jpg" },
+    { name: "OpenFintech", image: "/assets/IG/Web Development/Community Partners/Open Fin Tech.jpg" },
+    { name: "GitHub", image: "/assets/IG/Web Development/Community Partners/Github.png" },
+    { name: "Elixir Labs", image: "/assets/IG/Web Development/Community Partners/Elixir Labs.png" },
+    { name: "Open Grad", image: "/assets/IG/Web Development/Community Partners/Open Grad.png" },
+    { name: "Softnotions", image: "/assets/IG/Web Development/Community Partners/Softnotions.png" },
+    { name: "Hamon Solutions", image: "/assets/IG/Web Development/Community Partners/Hamon.jpeg" },
+    { name: "Alokin", image: "/assets/IG/Web Development/Community Partners/Alokin.jpg" },
   ],
-  prerequisites: [
-    "Basic Computer Skills",
-    "Basic Knowledge of the Internet",
-    "HTML (HyperText Markup Language)",
-    "CSS (Cascading Style Sheets)",
-    "Basic JavaScript",
-    "Version Control (Git)",
-    "Browser Developer Tools",
-    "Responsive Web Design",
-    "Basic Graphic Design Principles",
-    "Basic Knowledge of Web Hosting and Deployment",
-    "Basic Knowledge of Web Accessibility",
-  ],
+  prerequisites: {
+    description: "To get started, you should have basic computer skills and a foundational understanding of the internet. Knowledge of HTML (HyperText Markup Language) and CSS (Cascading Style Sheets) is essential, along with a basic understanding of JavaScript. Familiarity with version control systems like Git and browser developer tools is important for debugging and collaboration. You should also be comfortable with responsive web design principles, which ensure websites work well on different devices. A basic grasp of graphic design principles is useful for creating visually appealing interfaces. Additionally, knowledge of web hosting, deployment, and web accessibility practices will help ensure your websites are accessible and functional."
+  },
+  
   learningPath: {
     embedUrl: "https://roadmap.sh/r/embed?id=6738b39ff20970fd484189ca",
   },
+  // learningCircles: [
+  //   {
+  //     title: "Title 1",
+  //     description: "In feugiat orci condimentum. Integer suscipit sollicitudin odio, non volutpat neque tempus ut.",
+  //     date: "December 30, 2024",
+  //     time: "2:00 PM",
+  //     location: "New York, NY"
+  //   },
+  //   {
+  //     title: "Title 2",
+  //     description: "In feugiat orci condimentum. Integer suscipit sollicitudin odio, non volutpat neque tempus ut.",
+  //     date: "December 31, 2024",
+  //     time: "3:00 PM",
+  //     location: "Los Angeles, CA"
+  //   },
+  //   {
+  //     title: "Title 3",
+  //     description: "In feugiat orci condimentum. Integer suscipit sollicitudin odio, non volutpat neque tempus ut.",
+  //     date: "January 1, 2025",
+  //     time: "4:00 PM",
+  //     location: "Chicago, IL"
+  //   },
+  // ],
+  learningCircles: null,
   mentors: [
     {
       name: "Amal CP",
-      linkedin: null,
+      linkedin: "https://www.linkedin.com/in/amal-c-p/",
+      hasLinkedin: true,
+      role: "Associate Software Developer @SOTI",
+      imageUrl: "/assets/IG/Web Development/Mentors/Amal C P.jpg",
     },
     {
       name: "Bijo Mathew",
       linkedin: "https://www.linkedin.com/in/bijomathewjose/",
+      hasLinkedin: true,
+      role: "React Native Developer @Superapps",
+      imageUrl: "/assets/IG/Web Development/Mentors/Bijo.jpg",
+
+
     },
     {
       name: "Arjun MS",
-      linkedin: null,
+      linkedin: "https://www.linkedin.com/in/the-arjun-ms/",
+      hasLinkedin: true,
+      role: "Backend Developer @Gtech µLearn",
+      imageUrl: "/assets/IG/Web Development/Mentors/Arjun MS.jpg",
+
     },
     {
       name: "Aswin Asok",
       linkedin: "https://www.linkedin.com/in/-aswinasok/",
+      hasLinkedin: true,
+      role: "Co-Founder, MakeMyPass",
+      imageUrl: "/assets/IG/Web Development/Mentors/Aswin Asok.jpg",
     },
   ],
   interestGroupLeads: {
-    leads: ["Janu Krishna", "Aravind"],
+    leads: [
+      { name: "Janu Krishna", imageUrl: "/assets/IG/Web Development/IG Leads/Janukrishna AS.jpg", role: "College", hasLinkedin: true },
+
+      { name: "Aravind", imageUrl: "/assets/IG/Web Development/IG Leads/Aravind Krishna.jpg", role: "College", hasLinkedin: false },
+    ],
   },
   opportunities: [
     {

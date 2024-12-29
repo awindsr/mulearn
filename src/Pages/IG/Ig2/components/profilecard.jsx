@@ -1,7 +1,7 @@
 import { Linkedin } from "lucide-react";
 // import Image from "next/image";
 
-export function ProfileCard({ name, role, imageUrl, hasLinkedin = true }) {
+export function ProfileCard({ name, role, imageUrl, hasLinkedin=true, linkedin, institution }) {
   return (
     <div className="flex items-center gap-3 p-6 rounded-xl bg-white shadow-md justify-between">
       <div className="flex items-start flex-col gap-3 space-y-8">
@@ -14,7 +14,7 @@ export function ProfileCard({ name, role, imageUrl, hasLinkedin = true }) {
             />
           ) : (
             <img
-              src="https://via.placeholder.com/150"
+              src={imageUrl}
               alt="Placeholder"
               className="w-24 h-24 rounded-md object-cover shadow-sm"
             />
@@ -22,7 +22,9 @@ export function ProfileCard({ name, role, imageUrl, hasLinkedin = true }) {
         </div>
         <div className="flex-1">
           <h3 className="font-semibold text-lg text-gray-900">{name}</h3>
-          <p className="text-sm text-gray-500">{role}</p>
+          {institution && <p className="text-sm text-gray-500">{institution}</p>}
+          {role && <p className="text-sm text-gray-500">{role}</p>}
+    
         </div>
       </div>
       {hasLinkedin && (
@@ -30,9 +32,10 @@ export function ProfileCard({ name, role, imageUrl, hasLinkedin = true }) {
           {" "}
           {/* Optional: Wrap LinkedIn icon in a div */}
           <a
-            href="#"
+            href={linkedin}
+            target="_blank"
             className="p-2 text-gray-600 hover:text-gray-900"
-            aria-label={`${name}'s LinkedIn profile`}
+            aria-label={`${name}'s LinkedIn profile`} rel="noreferrer"
           >
             <Linkedin className="h-5 w-5" />
           </a>
