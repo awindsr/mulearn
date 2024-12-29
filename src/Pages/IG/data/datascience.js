@@ -20,9 +20,12 @@ export const datascience = {
   },
   mentors: [
     {
-      name: "Arjun M S",
-      title: null,
-      linkedin: null,
+      name: "Arjun MS",
+      linkedin: "https://www.linkedin.com/in/the-arjun-ms/",
+      hasLinkedin: true,
+      role: "Backend Developer @Gtech µLearn",
+      imageUrl: "/assets/IG/Artificial Intelligence/Mentors/Arjun MS.jpg",
+
     },
   ],
   interestGroupLeads: {
@@ -31,13 +34,16 @@ export const datascience = {
     leads: [
       {
         name: "Muhammed Ziyan",
-        institution: "St. Thomas Institute for Science and Technology",
+        role: "Product Manager @Banzan Studios",
         linkedin: "https://www.linkedin.com/in/mziyan/",
+        imageUrl: "/assets/IG/Data Science/IG Lead/Muhammed Ziyan.jpg",
       },
       {
         name: "Jeeva Vinod",
-        institution: "Vidya Academy of Science and Technology",
+
+        role: "Data Science Intern @Gtech µLearn",
         linkedin: "https://www.linkedin.com/in/jeeva-vinod-7b536a215",
+        imageUrl: "/assets/IG/Data Science/IG Lead/Jeeva Vinod.jpg",
       },
     ],
   },

@@ -20,23 +20,27 @@ export const devops = {
   mentors: [
     {
       name: "Akash Santhosh",
-      title: "Network and Systems Engineer – Debian Contributor Mulearn Alumni",
+      role: "Network and Systems Engineer | Debian Contributor µlearn Alumni",
       linkedin: "https://www.linkedin.com/in/akashsanthosh/",
+      imageUrl: "/assets/IG/Devops/Mentors/Akash Santhosh.jpg",
+
     },
     {
       name: "Muhammed Iqbal P B",
-      title:
-        "Cloud Architect at Codeace Leading AWS UG, CNCG & Grafana Kochi Mulearn Alumni",
+      role:
+        "Cloud Architect @Codeace Leading AWS UG, CNCG & Grafana Kochi, µlearn Alumni",
       linkedin: "https://www.linkedin.com/in/iqbalpb/",
+      imageUrl: "/assets/IG/DevOps/Mentors/Muhammed Iqbal.jpg",
     },
   ],
   interestGroupLeads: {
-    description: null,
+    description: "Interest group leads manage the activities and events within interest groups and serve as a point of contact for students interested in getting involved. Students can connect with these leads to learn about opportunities within their interests.",
     leads: [
       {
         name: "Lezin VM",
         institution: "College of Engineering Aranmula",
         linkedin: "https://www.linkedin.com/in/lezin-vm/",
+        imageUrl: "/assets/IG/Devops/IG Leads/Lezin V M.jpeg",
       },
     ],
   },

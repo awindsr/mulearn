@@ -9,13 +9,14 @@ export const gamedev = {
       thinkTankMeeting: "Saturday 8:30 PM @ Google Meet",
     },
   },
+
+
   communityPartners: [
-    "TILTLABS",
-    "TiltEdu",
-    "Banzan Studios",
-    "Norian Games",
-    "AKEF",
-    "AnimationXpress",
+    { name: "TILTLABS", image: "/assets/IG/Game Development/Community Partners/Tiltlabs.png" },
+    { name: "Banzan Studios", image: "/assets/IG/Game Development/Community Partners/Banzan.jpg" },
+    { name: "Norian Games", image: "/assets/IG/Game Development/Community Partners/Norian.png" },
+    { name: "AKEF", image: "/assets/IG/Game Development/Community Partners/AKEF.png" },
+    { name: "AnimationXpress", image: "/assets/IG/Game Development/Community Partners/AnimationXpress.jpeg" },
   ],
   prerequisites: {
     description:
@@ -27,18 +28,21 @@ export const gamedev = {
   mentors: [
     {
       name: "Nikhil Chandran",
-      title: null,
-      linkedin: "(21) Nikhil Chandran | LinkedIn",
+      role: "Founder & CEO @ TILTLABS",
+      linkedin: "https://www.linkedin.com/in/nikhil-tiltlabs/",
+      imageUrl: "/assets/IG/Game Development/Mentors/Nikhil Chandran.png",
     },
     {
       name: "Mukesh Dev",
-      title: null,
-      linkedin: "(21) Mukesh Dev | LinkedIn",
+      role: "Founder & CEO-Banzan Studios",
+      linkedin: "https://www.linkedin.com/in/mukeshdev/",
+      imageUrl: "/assets/IG/Game Development/Mentors/Mukesh Dev.png",
     },
     {
       name: "Jobin Joseph",
-      title: null,
-      linkedin: "(21) Jobin Joseph | LinkedIn",
+      role: " Norian Games",
+      linkedin: "https://www.linkedin.com/in/jobin-joseph-8b0aa4265/",
+      imageUrl: "/assets/IG/Game Development/Mentors/Jobin.png",
     },
   ],
   interestGroupLeads: {
@@ -50,6 +54,7 @@ export const gamedev = {
         institution:
           "St.Thomas Institute of Science and Technology, Trivandrum",
         linkedin: "https://www.linkedin.com/in/sabal-krishna-s-29b758298/",
+        imageUrl: "/assets/IG/Game Development/IG Lead/image.jpg",
       },
     ],
   },
@@ -98,33 +103,33 @@ export const gamedev = {
   peopleToFollow: [
     {
       name: "Hideo Kojima",
-      link: "Follow on Twitter",
+      link: "https://twitter.com/HIDEO_KOJIMA_EN",
     },
     {
       name: "John Carmack",
-      link: "John Carmack (@ID_AA_Carmack) / X",
+      link: "https://x.com/ID_AA_Carmack",
     },
     {
       name: "Rami Ismail",
-      link: "Rami Ismail / رامي (@tha_rami) / X",
+      link: "https://x.com/tha_rami",
     },
     {
       name: "Cory Barlog",
-      link: "cory barlog (@corybarlog) / X",
+      link: "https://x.com/corybarlog",
     },
   ],
   blogsToFollow: [
     {
       name: "Next Level Plugins",
-      link: "Unreal Engine Blogs: Level Up Your Game Dev | NextLevelPlugins",
+      link: "https://nextlevelplugins.com/blog//2024/11/Level-Up-Your-Unreal-Engine-Game-Essential-Blogs-for-Developers.html",
     },
     {
       name: "Game Developer",
-      link: "Featured Blog | The art of game balance: evolution",
+      link: "https://www.gamedeveloper.com/design/the-art-of-game-balance-evolution",
     },
     {
       name: "Game Dev Candids",
-      link: "How to find your game's North Star, and design compelling features for your players",
+      link: "https://gamedevcandids.com/how-to-find-your-games-north-star/",
     },
   ],
   topKeywords: [
