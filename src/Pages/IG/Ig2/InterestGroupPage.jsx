@@ -25,7 +25,7 @@ import { productManagement } from "../data/productmanagement";
 import { entrepreneurship } from "../data/entrepreneurship";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function Dashboard() {
+export default function InterestGroupPage() {
   const { id } = useParams();
 
   // New state to hold the dynamic data

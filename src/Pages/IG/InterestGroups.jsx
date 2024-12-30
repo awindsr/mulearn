@@ -1,6 +1,6 @@
 import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar/Navbar";
-import Dashboard from "./Ig2/IntersestGroup2";
+import Dashboard from "./Ig2/components/InterestGroupPage";
 import styles from "./InterestGroups.module.css";
 import fvimg from "./assets/fvimg.png";
 import { useState } from "react";
