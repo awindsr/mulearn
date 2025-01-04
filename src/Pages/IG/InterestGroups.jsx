@@ -2,7 +2,7 @@ import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar/Navbar";
 import styles from "./InterestGroups.module.css";
 import fvimg from "./assets/fvimg.png";
-import { useState } from "react";
+// import { useState } from "react";
 import { Users, BookOpen, Calendar, Share2, TrendingUp, Network, Award, GitMerge,  Code, Paintbrush, Cpu, Briefcase } from 'lucide-react'
 
 const features = [
