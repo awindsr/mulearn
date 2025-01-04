@@ -2,7 +2,7 @@ import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar/Navbar";
 import styles from "./InterestGroups.module.css";
 import fvimg from "./assets/fvimg.png";
-import { useState } from "react";
+// import { useState } from "react";
 import { Users, BookOpen, Calendar, Share2, TrendingUp, Network, Award, GitMerge,  Code, Paintbrush, Cpu, Briefcase } from 'lucide-react'
 
 const features = [
@@ -48,57 +48,57 @@ const categories = [
 ]
 
 const InterestGroups = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  // const [currentSlide, setCurrentSlide] = useState(0);
 
-  const carouselItems = [
-    {
-      title: "Title 1",
-      date: "Date",
-      time: "Time",
-      location: "Location",
-    },
-    {
-      title: "Title 2",
-      date: "Date",
-      time: "Time",
-      location: "Location",
-    },
-    {
-      title: "Title 3",
-      date: "Date",
-      time: "Time",
-      location: "Location",
-    },
-    {
-      title: "Title 3",
-      date: "Date",
-      time: "Time",
-      location: "Location",
-    },
-    {
-      title: "Title 3",
-      date: "Date",
-      time: "Time",
-      location: "Location",
-    },
-    {
-      title: "Title 3",
-      date: "Date",
-      time: "Time",
-      location: "Location",
-    },
-    // Add more items as needed
-  ];
+  // const carouselItems = [
+  //   {
+  //     title: "Title 1",
+  //     date: "Date",
+  //     time: "Time",
+  //     location: "Location",
+  //   },
+  //   {
+  //     title: "Title 2",
+  //     date: "Date",
+  //     time: "Time",
+  //     location: "Location",
+  //   },
+  //   {
+  //     title: "Title 3",
+  //     date: "Date",
+  //     time: "Time",
+  //     location: "Location",
+  //   },
+  //   {
+  //     title: "Title 3",
+  //     date: "Date",
+  //     time: "Time",
+  //     location: "Location",
+  //   },
+  //   {
+  //     title: "Title 3",
+  //     date: "Date",
+  //     time: "Time",
+  //     location: "Location",
+  //   },
+  //   {
+  //     title: "Title 3",
+  //     date: "Date",
+  //     time: "Time",
+  //     location: "Location",
+  //   },
+  //   // Add more items as needed
+  // ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
-  };
+  // const nextSlide = () => {
+  //   setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
+  // };
 
-  const prevSlide = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + carouselItems.length) % carouselItems.length
-    );
-  };
+  // const prevSlide = () => {
+  //   setCurrentSlide(
+  //     (prev) => (prev - 1 + carouselItems.length) % carouselItems.length
+  //   );
+  // };
 
   return (
     <>

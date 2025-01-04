@@ -1,7 +1,6 @@
 import React from "react";
 import ContentsMenu from "../components/menu";
 import styles from "./index.module.css";
-import Dashboard from "../InterestGroupPage";
 import Navbar from "../../../../Components/Navbar/Navbar";
 import Footer from "../../../../Components/Footer/Footer";
 import InterestGroupPage from "../InterestGroupPage";
