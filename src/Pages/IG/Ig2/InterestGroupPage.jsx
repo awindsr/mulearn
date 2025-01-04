@@ -21,6 +21,7 @@ import { digitalMarketing } from "../data/digitalmarketing";
 import { productManagement } from "../data/productmanagement";
 import { entrepreneurship } from "../data/entrepreneurship";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Timeline from "./components/Timeline";
 
 export default function InterestGroupPage() {
   const { id } = useParams();
@@ -63,16 +64,16 @@ export default function InterestGroupPage() {
     // Load data based on the id
     const loadData = () => {
       switch (id) {
-        case "web-dev":
+        case "web-development":
           setData(webdev);
           break;
-        case "datascience":
+        case "data-science":
           setData(datascience);
           break;
-        case "gamedev":
+        case "game-development":
           setData(gamedev);
           break;
-        case "devops":
+        case "cloud-and-devops":
           setData(devops);
           break;
         case "cybersecurity":
@@ -87,13 +88,13 @@ export default function InterestGroupPage() {
         case "arvr":
           setData(arVr);
           break;
-        case "hr":
+        case "human-resources":
           setData(hr);
           break;
-        case "digitalmarketing":
+        case "digital-marketing":
           setData(digitalMarketing);
           break;
-        case "productmanagement":
+        case "product-management":
           setData(productManagement);
           break;
         case "entrepreneurship":
@@ -125,7 +126,9 @@ export default function InterestGroupPage() {
         <div className={styles.contentSide}>
           <h1 className={styles.title}>{data.title}</h1>
 
-          <p className={styles.description}>{data.introduction?.description}</p>
+          <p className={styles.description}>{data.introduction?.description}<br/><span> <a href={data.introduction?.downloadLink} target="_blank" rel="noopener noreferrer" className="text-orange-400">Click here</a> to download the foundation deck.</span></p>
+          
+         
 
           <div className={styles.offerInfo}>
             <span className={styles.highlight}>Office Hours</span>{" "}
@@ -135,7 +138,7 @@ export default function InterestGroupPage() {
             {data.introduction.schedules?.thinkTankMeeting || "TBA"}
           </div>
 
-          <button className={styles.primaryButton}>Discover More</button>
+          <button type="button" className={styles.primaryButton} onClick={() => window.open('https://app.mulearn.org', '_blank')}>Join learning Circles</button>
         </div>
         <div
           className={`flex-1 lg: min-w-[300px] flex justify-center items-center max-lg:hidden`}>
@@ -257,13 +260,14 @@ export default function InterestGroupPage() {
       <Section className="w-full" title="Learning Path">
         <div className=" max-w-6xl mx-auto px-4 py-8">
           <div className="w-full border rounded-lg overflow-hidden bg-white">
-            <iframe
+            {/* <iframe
               src={data.learningPath?.embedUrl}
               width="100%"
               height="900px"
               frameBorder="0"
               title="Roadmap Preview"
-            />
+            /> */}
+            <Timeline/>
           </div>
         </div>
       </Section>

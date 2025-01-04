@@ -11,7 +11,7 @@ export const arVr = {
     },
   
     communityPartners: [
-      { name: "XTrudar", image: "/assets/IG/AR-VR/Community Partners/XTrudar.jpg" },  // Replace with actual partner details
+      { name: "XTrudar", image: "/assets/IG/ARVR/Community Partners/Xtrudar.png" },  // Replace with actual partner details
     ],
     
     prerequisites: {
@@ -25,10 +25,10 @@ export const arVr = {
     
     mentors: [
       {
-        name: "Vishnu",
-        role: "AR/VR Developer",
-        linkedin: "https://www.linkedin.com/in/johndoe",
-        imageUrl: "/assets/IG/AR-VR/Mentors/Vishnu.jpg",  // Replace with actual details
+        name: "Karthik Narayanan",
+        role: "Design Lead, RigiLabs Collective",
+        // linkedin: "https://www.linkedin.com/",
+        imageUrl: "/assets/IG/ARVR/Mentors/Vishnu.jpg",  // Replace with actual details
       },
       
     ],
@@ -41,7 +41,7 @@ export const arVr = {
           name: "Dev Nandan S",
           institution: "St.Thomas Institute for Science & Technology",
           linkedin: "http://www.linkedin.com/in/dev-nandan-426861253",
-          imageUrl: "/assets/IG/AR-VR/IG Leads/Dev Nandan S.jpg",  // Replace with actual details
+          imageUrl: "/assets/IG/ARVR/IG Leads/Dev Nandan S.png",  // Replace with actual details
         },
       ],
     },

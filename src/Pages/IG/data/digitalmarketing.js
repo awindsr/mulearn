@@ -5,9 +5,18 @@ export const digitalMarketing = {
       "Excited to explore the dynamic world of digital marketing? The Digital Marketing Interest Group empowers you with practical and theoretical knowledge, covering SEO, email marketing, social media management, and analytics. This group is perfect for anyone passionate about creating impactful campaigns and analyzing audience behaviour.",
     downloadLink:
       "https://www.notion.so/Digital-Marketing-11e59e69b1bf801cae94daada4c746db?pvs=21",
+    schedules: {
+      officeHours: "Tuesday 8:30PM",
+      thinkTankMeeting: "4th Saturday 7:30PM",
+    },
   },
 
-  communityPartners: null,
+  communityPartners: [
+    {
+      name: "TechHazel Media",
+      image: "/assets/IG/Digital Marketing/Community Partners/TechHazel Media.png",
+    },
+  ],
 
   prerequisites: {
     description:
@@ -30,21 +39,20 @@ export const digitalMarketing = {
   interestGroupLeads: {
     description:
       "Interest group leads manage the activities and events within interest groups and serve as a point of contact for students interested in getting involved. Students can connect with these leads to learn about opportunities within their interests",
-      leads: [
-        {
-          name: "Marvin V Mathew",
-          institution: "St. Thomas Institute of Science and Technology",
-          linkedin: "https://www.linkedin.com/in/marvin-v-mathew",
-          imageUrl: "/assets/IG/Digital Marketing/IG Lead/Marvin V Mathew.jpg",
-        },
-        {
-          name: "KH Arjun",
-          institution: "Marian Engineering College",
-          linkedin: "https://www.linkedin.com/in/k-h-arjun-310913206/",
-          imageUrl: "/assets/IG/Digital Marketing/IG Lead/K H Arjun.JPG",
-        },
-      ],
-      
+    leads: [
+      {
+        name: "Marvin V Mathew",
+        institution: "St. Thomas Institute of Science and Technology",
+        linkedin: "https://www.linkedin.com/in/marvin-v-mathew",
+        imageUrl: "/assets/IG/Digital Marketing/IG Lead/Marvin V Mathew.jpg",
+      },
+      {
+        name: "KH Arjun",
+        institution: "Marian Engineering College",
+        linkedin: "https://www.linkedin.com/in/k-h-arjun-310913206/",
+        imageUrl: "/assets/IG/Digital Marketing/IG Lead/K H Arjun.JPG",
+      },
+    ],
   },
 
   opportunities: [

@@ -5,8 +5,8 @@ export const datascience = {
       "Excited about uncovering insights from data? The Data Science Interest Group offers an opportunity to explore big data, machine learning, and predictive analysis, perfect for anyone interested in data-driven decision-making. Join us to understand how data can reveal patterns, trends, and solutions.",
     downloadLink: "foundation deck",
     schedules: {
-      officeHours: "TBA",
-      thinkTankMeeting: "Friday 6:30 PM @ Google Meet",
+      officeHours: "Monday 8:30 PM",
+      thinkTankMeeting: "2nd Friday 6:30 PM @ Google Meet",
     },
   },
   communityPartners: null,
@@ -34,14 +34,14 @@ export const datascience = {
     leads: [
       {
         name: "Muhammed Ziyan",
-        role: "Product Manager @Banzan Studios",
+        role: "St. Thomas Institute for Science and Technology",
         linkedin: "https://www.linkedin.com/in/mziyan/",
         imageUrl: "/assets/IG/Data Science/IG Lead/Muhammed Ziyan.jpg",
       },
       {
         name: "Jeeva Vinod",
 
-        role: "Data Science Intern @Gtech µLearn",
+        role: "Vidya Academy of Science and Technology",
         linkedin: "https://www.linkedin.com/in/jeeva-vinod-7b536a215",
         imageUrl: "/assets/IG/Data Science/IG Lead/Jeeva Vinod.jpg",
       },

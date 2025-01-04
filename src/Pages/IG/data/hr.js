@@ -5,8 +5,8 @@ export const hr = {
         "Curious about what makes great organizations thrive? The Human Resources Interest Group is your ultimate platform to uncover the secrets of people management, leadership development, and organizational success. Discover how HR shapes careers, drives innovation, and builds strong workplace cultures. Whether you're aspiring to lead teams, influence business decisions, or create impactful employee experiences, this is your chance to dive into the world of HR and unlock limitless career potential. Join us and start building a future where you make a difference.",
       downloadLink: "https://www.notion.so/HR-11e59e69b1bf80dcb994c2ba100c04d5?pvs=21",
       schedules: {
-        officeHours: "TBA",  // Replace with actual office hours
-        thinkTankMeeting: "TBA",  // Replace with actual meeting time
+        officeHours: "Wednesday 8:00PM",  // Replace with actual office hours
+        thinkTankMeeting: "3rd Wednesday 8:30PM",  // Replace with actual meeting time
       },
     },
   
@@ -43,13 +43,13 @@ export const hr = {
       {
         name: "Judlin Berna NM",
         role: "Human Resources Generalist @FAYA",
-        imageUrl: "/assets/IG/HR/Mentors/Judlin Berna NM.jpg",
+        imageUrl: "/assets/IG/HR/Mentors/Judlin Berna.jpg",
         linkedin: "https://www.linkedin.com/in/judlinbernanm?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       },
       {
         name: "Bijo Abraham",
         role: "Talent Acquisition & Career Life Coach @SELECT HR Solutions",
-        imageUrl: "/assets/IG/HR/Mentors/Bijo Abraham.jpg",
+        imageUrl: "/assets/IG/HR/Mentors/bijo.jpg",
         linkedin: "https://www.linkedin.com/in/bijo-abraham-a719a554?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       },
     ],

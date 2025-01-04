@@ -11,7 +11,7 @@ export const uiuxDesign = {
     },
   
     communityPartners: [
-      { name: "UX Shots", image: "/assets/IG/UI-UX/Community Partners/UX Shots.jpg" },
+      { name: "UX Shots", image: "/assets/IG/UI-UX/Community Partners/UXSHOTS.jpg" },
     ],
     prerequisites: {
       description:

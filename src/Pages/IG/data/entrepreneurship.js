@@ -5,13 +5,13 @@ export const entrepreneurship = {
         "Ever dreamed of building your own startup? It might feel like a big leap, but it's all about passion, creativity, and strategy. glearn's Entrepreneurship Interest Group is here to spark that entrepreneurial fire in you and turn your ideas into real-world ventures. We'll dive into the art of innovation, problem-solving, and leadership, all while gearing up to shape the next wave of changemakers. Grab the foundation deck and kickstart your entrepreneurial adventure today!",
       downloadLink: "Click here to download the foundation deck.",
       schedules: {
-        officeHours: "TBA",
-        thinkTankMeeting: "TBA",
+        officeHours: "Saturday 7:30PM",
+        thinkTankMeeting: "2nd Wednesday 7:30PM",
       },
     },
   
     communityPartners: [
-      { name: "Udhyam Foundation", image: "/assets/IG/Entrepreneurship/Community Partners/Udhyam.png" },
+      { name: "Udhyam Foundation", image: "/assets/IG/Entrepreneurship/Community Partners/Udhyam Logo.png" },
     ],
   
     prerequisites: {
@@ -29,7 +29,7 @@ export const entrepreneurship = {
         name: "Arun J S",
         role: "Chief Impact Officer @ Mulearn, Founder @ Slate N Pencil, Nodal Officer Catalyst @ IEDC and TBI, Assistant Professor @ Mar Baselios College of Engineering and Technology, Trivandrum",
         linkedin: "https://www.linkedin.com/in/mearunjs/",
-        imageUrl: "/assets/IG/Entrepreneurship/Mentors/ArunJS.png",
+        imageUrl: "/assets/IG/Entrepreneurship/Mentors/Arun Jayakumar.jpg",
       },
     ],
   
@@ -41,13 +41,13 @@ export const entrepreneurship = {
           name: "Jyothsna P Nair",
           institution: "Mar Baselios College of Engineering, Trivandrum",
           linkedin: "https://www.linkedin.com/in/jyothsna-p-nair/",
-          imageUrl: "/assets/IG/Entrepreneurship/IG Leads/Jyothsna.png",
+          imageUrl: "/assets/IG/Entrepreneurship/Leads/Jyothsna P Nair.jpg",
         },
         {
           name: "Salahudheen Thajudheen",
           institution: "College of Engineering, Kottarakkara",
           linkedin: "https://www.linkedin.com/in/salahudheen-thajudheen/",
-          imageUrl: "/assets/IG/Entrepreneurship/IG Leads/Salahudheen.png",
+          imageUrl: "/assets/IG/Entrepreneurship/Leads/Sallahudin.JPG",
         },
       ],
     },
