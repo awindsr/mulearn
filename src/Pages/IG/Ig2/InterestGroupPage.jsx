@@ -2,11 +2,8 @@ import { Keywords } from "./components/keywords";
 import { ProfileCard } from "./components/profilecard";
 import { Section } from "./components/section";
 import fvimg from "../assets/fvimg.png";
-import pygammerLogo from "../assets/pygammer.png";
 import styles from "./index.module.css";
 import { BiCalendar, BiTime, BiMap } from "react-icons/bi";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useParams } from "react-router-dom";
@@ -25,7 +22,7 @@ import { productManagement } from "../data/productmanagement";
 import { entrepreneurship } from "../data/entrepreneurship";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function Dashboard() {
+export default function InterestGroupPage() {
   const { id } = useParams();
 
   // New state to hold the dynamic data

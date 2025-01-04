@@ -75,7 +75,7 @@ export const webdev = {
       linkedin: "https://www.linkedin.com/in/the-arjun-ms/",
       hasLinkedin: true,
       role: "Backend Developer @Gtech µLearn",
-      imageUrl: "/assets/IG/Web Development/Mentors/Arjun MS.jpg",
+      imageUrl: "/assets/IG/Web Development/Mentors/Arjun M S.jpg",
 
     },
     {
@@ -88,9 +88,9 @@ export const webdev = {
   ],
   interestGroupLeads: {
     leads: [
-      { name: "Janu Krishna", imageUrl: "/assets/IG/Web Development/IG Leads/Janukrishna AS.jpg", role: "College", hasLinkedin: true },
+      { name: "Janu Krishna", imageUrl: "/assets/IG/Web Development/IG Leads/Janukrishna AS.jpg", role: "Marian Engineering College", hasLinkedin: true },
 
-      { name: "Aravind", imageUrl: "/assets/IG/Web Development/IG Leads/Aravind Krishna.jpg", role: "College", hasLinkedin: false },
+      { name: "Aravind", imageUrl: "/assets/IG/Web Development/IG Leads/Aravind Krishna.jpg", role: "College of Engineering, Pathanapuram", hasLinkedin: false },
     ],
   },
   opportunities: [
@@ -127,15 +127,15 @@ export const webdev = {
     },
     {
       name: "Six Revisions",
-      link: "Click Here",
+      link: "https://www.webfx.com/blog/web-design/",
     },
     {
       name: "Tim Holman",
-      link: "Click Here",
+      link: "https://tholman.com/",
     },
     {
       name: "Freecodecamp",
-      link: "Click Here",
+      link: "https://www.freecodecamp.org/",
     },
     {
       name: "100DaysOfCode",
