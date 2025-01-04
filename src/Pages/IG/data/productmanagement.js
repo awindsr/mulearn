@@ -4,7 +4,7 @@ export const productManagement = {
       description:
         "Product Management is deciding what to build next”. Are you interested in learning to build the right product and the product right? Join our “Product Management” Interest Group to learn and collaborate with peers.",
 
-      downloadLink: "foundation deck",
+      downloadLink: "https://mulearnfoundation.notion.site/11e59e69b1bf8081b32ccfc0255949e0?pvs=25",
       schedules: {
         officeHours: "TBA",
         thinkTankMeeting: "TBA",

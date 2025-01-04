@@ -3,14 +3,14 @@ export const webdev = {
   introduction: {
     description:
       "Ever wondered how web applications are built? Everything seems complex until you learn the basics. μLearn Foundation's Web Development Interest Group is designed to help you develop and refine your skills, bringing together people eager to explore emerging web technologies.",
-    downloadLink: "foundation deck",
+    downloadLink: "https://mulearnfoundation.notion.site/11e59e69b1bf80f1ad1ec76b48146da9?pvs=25",
     schedules: {
       officeHours: "Wednesday 9:00 PM @ Discord Lobby",
       thinkTankMeeting: "Friday 7:00 PM @ Google Meet",
     },
   },
   communityPartners: [
-    { name: "Pygrammers", image: "/assets/IG/Web Development/Community Partners/Pygrammers.jpg" },
+    { name: "Pygrammers", image: "/assets/IG/Web Development/Community Partners/Pygrammers.png" },
     { name: "Engagesport", image: "/assets/IG/Web Development/Community Partners/Engagespot.jpg" },
     { name: "Reflections", image: "/assets/IG/Web Development/Community Partners/Reflections.jpg" },
     { name: "Faya", image: "/assets/IG/Web Development/Community Partners/Faya.jpg" },
@@ -123,7 +123,7 @@ export const webdev = {
   peopleToFollow: [
     {
       name: "Alex Sexton",
-      link: "Click Here",
+      link: "Click Here", //todo
     },
     {
       name: "Six Revisions",

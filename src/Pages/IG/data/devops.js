@@ -3,7 +3,7 @@ export const devops = {
   introduction: {
     description:
       "Wonder how applications are deployed and managed in the cloud? Cloud computing and DevOps are the backbone of modern IT infrastructure, ensuring that software is delivered faster, more efficiently, and with higher reliability. The Cloud Computing & DevOps Interest Group at GTech μLearn is here to equip you with the skills needed to master cloud platforms, automation tools, and continuous integration/continuous deployment (CI/CD) practices. Join us to explore, learn, and collaborate on real-world projects, and dive into the future of cloud-native technologies.",
-    downloadLink: "foundation deck",
+    downloadLink: "https://mulearnfoundation.notion.site/11e59e69b1bf807d8bf8dfe078c074d7?pvs=25",
     schedules: {
       officeHours: "Wednesday 7PM @ Gathering Field",
       thinkTankMeeting: "Thursday 6:00 PM @ Google Meet",

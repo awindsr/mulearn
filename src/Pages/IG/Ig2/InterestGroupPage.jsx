@@ -59,6 +59,9 @@ export default function InterestGroupPage() {
 
     return visibleItems;
   };
+  const handleDownloadFoundationDeck = () => {
+    window.open(data.introduction?.downloadLink, "_blank");
+  }
 
   useEffect(() => {
     // Load data based on the id
@@ -138,7 +141,7 @@ export default function InterestGroupPage() {
             {data.introduction.schedules?.thinkTankMeeting || "TBA"}
           </div>
 
-          <button type="button" className={styles.primaryButton} onClick={() => window.open('https://app.mulearn.org', '_blank')}>Join learning Circles</button>
+          <button type="button" className={styles.primaryButton} onClick={handleDownloadFoundationDeck}>Join learning Circles</button>
         </div>
         <div
           className={`flex-1 lg: min-w-[300px] flex justify-center items-center max-lg:hidden`}>

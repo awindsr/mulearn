@@ -3,7 +3,7 @@ export const cybersecurity = {
   introduction: {
     description:
       "Curious about protecting the digital world? The Cybersecurity Interest Group by GTech μLearn delves into securing data and networks from potential threats. This group provides essential knowledge on staying safe online, ideal for those passionate about keeping cyberspace secure.",
-    downloadLink: "foundation deck",
+    downloadLink: "https://mulearnfoundation.notion.site/11e59e69b1bf804c8fe3fd2acbca4258?pvs=25",
     schedules: {
       officeHours: "Monday 7:30 PM @ Discord Lobby",
       thinkTankMeeting: "First Wednesday 7:00 PM @ Google Meet",

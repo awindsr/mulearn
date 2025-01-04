@@ -4,7 +4,7 @@ export const digitalMarketing = {
     description:
       "Excited to explore the dynamic world of digital marketing? The Digital Marketing Interest Group empowers you with practical and theoretical knowledge, covering SEO, email marketing, social media management, and analytics. This group is perfect for anyone passionate about creating impactful campaigns and analyzing audience behaviour.",
     downloadLink:
-      "https://www.notion.so/Digital-Marketing-11e59e69b1bf801cae94daada4c746db?pvs=21",
+      "https://mulearnfoundation.notion.site/11e59e69b1bf801cae94daada4c746db?pvs=25",
     schedules: {
       officeHours: "Tuesday 8:30PM",
       thinkTankMeeting: "4th Saturday 7:30PM",

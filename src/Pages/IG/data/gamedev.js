@@ -3,7 +3,7 @@ export const gamedev = {
   introduction: {
     description:
       "Passionate about creating immersive experiences in gaming? The Game Development Interest Group is your gateway to learning about designing, programming, and storytelling in the world of games. Whether you're into creating captivating visuals, coding mechanics, or crafting narratives, join us to level up your game development skills.",
-    downloadLink: "foundation deck",
+    downloadLink: "https://mulearnfoundation.notion.site/11e59e69b1bf8002aaa0e99daf76a94f?pvs=25",
     schedules: {
       officeHours: "Friday 8:30 @ Discord Lobby",
       thinkTankMeeting: "Saturday 8:30 PM @ Google Meet",
