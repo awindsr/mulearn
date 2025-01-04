@@ -55,7 +55,6 @@ import EnablersPage from "./Pages/EnablersPage/EnablersPage";
 import In50Hours from "./Pages/In50Hours/In50Hours";
 import Manifesto from "./Pages/Manifesto/Manifesto";
 import InterestGroups from "./Pages/IG/InterestGroups";
-import IgLayout from "./Pages/IG/Ig2/layout";
 import InterestGroupDetails from "./Pages/IG/Ig2/layout";
 function App() {
   const [redirects, setRedirects] = useState([]);

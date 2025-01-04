@@ -14,7 +14,7 @@ import { devops } from "../data/devops";
 import { uiuxDesign } from "../data/uiux";
 import { cybersecurity } from "../data/cybersecurity";
 import { useEffect, useState } from "react";
-import { artificialIntelligence } from "../data/ai";
+// import { artificialIntelligence } from "../data/ai";
 import { arVr } from "../data/arvr";
 import { hr } from "../data/hr";
 import { digitalMarketing } from "../data/digitalmarketing";

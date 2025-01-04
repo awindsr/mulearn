@@ -48,57 +48,57 @@ const categories = [
 ]
 
 const InterestGroups = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  // const [currentSlide, setCurrentSlide] = useState(0);
 
-  const carouselItems = [
-    {
-      title: "Title 1",
-      date: "Date",
-      time: "Time",
-      location: "Location",
-    },
-    {
-      title: "Title 2",
-      date: "Date",
-      time: "Time",
-      location: "Location",
-    },
-    {
-      title: "Title 3",
-      date: "Date",
-      time: "Time",
-      location: "Location",
-    },
-    {
-      title: "Title 3",
-      date: "Date",
-      time: "Time",
-      location: "Location",
-    },
-    {
-      title: "Title 3",
-      date: "Date",
-      time: "Time",
-      location: "Location",
-    },
-    {
-      title: "Title 3",
-      date: "Date",
-      time: "Time",
-      location: "Location",
-    },
-    // Add more items as needed
-  ];
+  // const carouselItems = [
+  //   {
+  //     title: "Title 1",
+  //     date: "Date",
+  //     time: "Time",
+  //     location: "Location",
+  //   },
+  //   {
+  //     title: "Title 2",
+  //     date: "Date",
+  //     time: "Time",
+  //     location: "Location",
+  //   },
+  //   {
+  //     title: "Title 3",
+  //     date: "Date",
+  //     time: "Time",
+  //     location: "Location",
+  //   },
+  //   {
+  //     title: "Title 3",
+  //     date: "Date",
+  //     time: "Time",
+  //     location: "Location",
+  //   },
+  //   {
+  //     title: "Title 3",
+  //     date: "Date",
+  //     time: "Time",
+  //     location: "Location",
+  //   },
+  //   {
+  //     title: "Title 3",
+  //     date: "Date",
+  //     time: "Time",
+  //     location: "Location",
+  //   },
+  //   // Add more items as needed
+  // ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
-  };
+  // const nextSlide = () => {
+  //   setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
+  // };
 
-  const prevSlide = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + carouselItems.length) % carouselItems.length
-    );
-  };
+  // const prevSlide = () => {
+  //   setCurrentSlide(
+  //     (prev) => (prev - 1 + carouselItems.length) % carouselItems.length
+  //   );
+  // };
 
   return (
     <>
