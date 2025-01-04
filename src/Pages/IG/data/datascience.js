@@ -24,7 +24,7 @@ export const datascience = {
       linkedin: "https://www.linkedin.com/in/the-arjun-ms/",
       hasLinkedin: true,
       role: "Backend Developer @Gtech µLearn",
-      imageUrl: "/assets/IG/Artificial Intelligence/Mentors/Arjun MS.jpg",
+      imageUrl: "/assets/IG/Data Science/Mentors/Arjun M S.jpg",
 
     },
   ],
