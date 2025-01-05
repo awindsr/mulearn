@@ -2,7 +2,7 @@ import { Keywords } from "./components/keywords";
 import { ProfileCard } from "./components/profilecard";
 import { Section } from "./components/section";
 import fvimg from "../assets/fvimg.png";
-import styles from "./index.module.css";
+// import styles from "./index.module.css";
 import { BiCalendar, BiTime, BiMap } from "react-icons/bi";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -22,6 +22,8 @@ import { productManagement } from "../data/productmanagement";
 import { entrepreneurship } from "../data/entrepreneurship";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Timeline from "./components/Timeline";
+import { InfiniteImageSlider } from "./components/InfiniteImageSlider";
+import styles from "../InterestGroups.module.css";
 
 export default function InterestGroupPage() {
   const { id } = useParams();
@@ -47,6 +49,9 @@ export default function InterestGroupPage() {
     });
   };
 
+  const [images, setImages] = useState([]);
+
+
   // Calculate visible items based on current viewport
   const getVisibleItems = () => {
     const items = [...data.learningCircles];
@@ -61,56 +66,64 @@ export default function InterestGroupPage() {
   };
   const handleDownloadFoundationDeck = () => {
     window.open(data.introduction?.downloadLink, "_blank");
-  }
+  };
 
   useEffect(() => {
     // Load data based on the id
     const loadData = () => {
+      let selectedData;
       switch (id) {
         case "web-development":
-          setData(webdev);
+          selectedData = webdev;
           break;
         case "data-science":
-          setData(datascience);
+          selectedData = datascience;
           break;
         case "game-development":
-          setData(gamedev);
+          selectedData = gamedev;
           break;
         case "cloud-and-devops":
-          setData(devops);
+          selectedData = devops;
           break;
         case "cybersecurity":
-          setData(cybersecurity);
+          selectedData = cybersecurity;
           break;
         case "uiux":
-          setData(uiuxDesign);
+          selectedData = uiuxDesign;
           break;
-        // case "ai":
-        //   setData(artificialIntelligence);
-        //   break;
         case "arvr":
-          setData(arVr);
+          selectedData = arVr;
           break;
         case "human-resources":
-          setData(hr);
+          selectedData = hr;
           break;
         case "digital-marketing":
-          setData(digitalMarketing);
+          selectedData = digitalMarketing;
           break;
         case "product-management":
-          setData(productManagement);
+          selectedData = productManagement;
           break;
         case "entrepreneurship":
-          setData(entrepreneurship);
+          selectedData = entrepreneurship;
           break;
         default:
-          setData(null); // Handle unknown id
+          selectedData = null;
+      }
+      
+      setData(selectedData);
+      
+      // If selectedData exists and has communityPartners, load their images
+      if (selectedData?.communityPartners) {
+        const imagePaths = selectedData.communityPartners.map(partner => partner.image);
+        setImages(imagePaths);
+      } else {
+        setImages([]); // Reset images if no community partners exist
       }
     };
-
+  
     loadData();
-  }, [id]); // Dependency array includes id to reload data on change
-
+  }, [id]);
+  
   useEffect(() => {
     const handleResize = () => {
       setismobile(window.innerWidth <= 768);
@@ -129,9 +142,21 @@ export default function InterestGroupPage() {
         <div className={styles.contentSide}>
           <h1 className={styles.title}>{data.title}</h1>
 
-          <p className={styles.description}>{data.introduction?.description}<br/><span> <a href={data.introduction?.downloadLink} target="_blank" rel="noopener noreferrer" className="text-orange-400">Click here</a> to download the foundation deck.</span></p>
-          
-         
+          <p className={styles.description}>
+            {data.introduction?.description}
+            <br />
+            <span>
+              {" "}
+              <a
+                href={data.introduction?.downloadLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange-400">
+                Click here
+              </a>{" "}
+              to download the foundation deck.
+            </span>
+          </p>
 
           <div className={styles.offerInfo}>
             <span className={styles.highlight}>Office Hours</span>{" "}
@@ -141,7 +166,12 @@ export default function InterestGroupPage() {
             {data.introduction.schedules?.thinkTankMeeting || "TBA"}
           </div>
 
-          <button type="button" className={styles.primaryButton} onClick={handleDownloadFoundationDeck}>Join learning Circles</button>
+          <button
+            type="button"
+            className={styles.primaryButton}
+            onClick={handleDownloadFoundationDeck}>
+            Join learning Circles
+          </button>
         </div>
         <div
           className={`flex-1 lg: min-w-[300px] flex justify-center items-center max-lg:hidden`}>
@@ -156,31 +186,20 @@ export default function InterestGroupPage() {
       </div>
       {data.communityPartners && (
         <div className="py-4 md:py-8 ">
-          <h2 className="text-2xl font-bold text-[#FF6B35] my-4 md:my-6 ml-0 text-left text-nowrap ">
+          <h2 className="text-2xl font-bold text-[#f78c40] my-4 md:my-6 ml-0 text-left text-nowrap ">
             Community Partners
           </h2>
-
-          <div className="flex max-sm:flex-col gap-8 w-full flex-wrap justify-center">
-            {data.communityPartners.map((partner, index) => (
-              <div
-                key={partner.name}
-                className="flex flex-wrap items-center  rounded-lg p-4 ">
-                <img
-                  className="w-[100px] object-fill "
-                  src={partner.image}
-                  alt={partner.name}
-                  width={200}
-                  height={200}
-                />
-              </div>
-            ))}
+          <div className=" flex items-center justify-center">
+            <div className="w-full ">
+              <InfiniteImageSlider images={images} speed={1.5} height={100} />
+            </div>
           </div>
         </div>
       )}
 
       {data.learningCircles && (
         <div className="w-full py-4 md:py-8 md:px-8">
-          <h2 className="text-2xl font-bold text-[#FF6B35] my-4 md:my-6 ml-0 text-left">
+          <h2 className="text-2xl font-bold text-[#f78c40] my-4 md:my-6 ml-0 text-left">
             Learning Circles
           </h2>
 
@@ -223,7 +242,7 @@ export default function InterestGroupPage() {
                           <span className="text-sm">{circle.location}</span>
                         </div>
                       </div>
-                      <button className="bg-[#FF6B35] text-white px-4 py-2 rounded hover:bg-[#e85f2f] transition-colors">
+                      <button className="bg-[#f78c40] text-white px-4 py-2 rounded hover:bg-[#e85f2f] transition-colors">
                         Join Now
                       </button>
                     </div>
@@ -270,7 +289,7 @@ export default function InterestGroupPage() {
               frameBorder="0"
               title="Roadmap Preview"
             /> */}
-            <Timeline/>
+            <Timeline />
           </div>
         </div>
       </Section>

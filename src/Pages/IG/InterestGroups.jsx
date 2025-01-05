@@ -3,7 +3,7 @@ import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar/Navbar";
 import styles from "./InterestGroups.module.css";
 import fvimg from "./assets/fvimg.png";
-// import { useState } from "react";
+
 import {
   Users,
   BookOpen,
@@ -18,6 +18,7 @@ import {
   Cpu,
   Briefcase,
 } from "lucide-react";
+import { InfiniteImageSlider } from "./Ig2/components/InfiniteImageSlider";
 
 const features = [
   { icon: Users, title: "Focused Learning Communities" },
@@ -88,58 +89,35 @@ const categories = [
 ];
 
 const InterestGroups = () => {
-  // const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const images = [
+    "/assets/IG/Web Development/Community Partners/Pygrammers.png",
+    "/assets/IG/Web Development/Community Partners/Engagespot.jpg",
+    "/assets/IG/Web Development/Community Partners/Reflections.jpg",
+    "/assets/IG/Web Development/Community Partners/Faya.jpg",
+    "/assets/IG/Web Development/Community Partners/Open Fin Tech.jpg",
+    "/assets/IG/Web Development/Community Partners/Github.png",
+    "/assets/IG/Web Development/Community Partners/Elixir Labs.png",
+    "/assets/IG/Web Development/Community Partners/Open Grad.png",
+    "/assets/IG/Web Development/Community Partners/Softnotions.png",
+    "/assets/IG/Web Development/Community Partners/Hamon.jpeg",
+    "/assets/IG/Web Development/Community Partners/Alokin.jpg",
+    "/assets/IG/UI-UX/Community Partners/UXSHOTS.jpg",
+    "/assets/IG/Game Development/Community Partners/Tiltlabs.png",
+    "/assets/IG/Game Development/Community Partners/Banzan.jpg",
+    "/assets/IG/Game Development/Community Partners/Norian.png",
+    "/assets/IG/Game Development/Community Partners/AKEF.png",
+    "/assets/IG/Game Development/Community Partners/AnimationXpress.jpeg",
+    "/assets/IG/Entrepreneurship/Community Partners/Udhyam Logo.png",
+    "/assets/IG/Digital Marketing/Community Partners/TechHazel Media.png",
+    "/assets/IG/Cyber Security/Community Partners/Beagle Security.jpg",
+    "/assets/IG/Cyber Security/Community Partners/Zilicon technologies.png",
+    "/assets/IG/ARVR/Community Partners/Xtrudar.png",
+    "/assets/IG/AI/Community Partners/Pathway.jpg",
+];
 
-  // const carouselItems = [
-  //   {
-  //     title: "Title 1",
-  //     date: "Date",
-  //     time: "Time",
-  //     location: "Location",
-  //   },
-  //   {
-  //     title: "Title 2",
-  //     date: "Date",
-  //     time: "Time",
-  //     location: "Location",
-  //   },
-  //   {
-  //     title: "Title 3",
-  //     date: "Date",
-  //     time: "Time",
-  //     location: "Location",
-  //   },
-  //   {
-  //     title: "Title 3",
-  //     date: "Date",
-  //     time: "Time",
-  //     location: "Location",
-  //   },
-  //   {
-  //     title: "Title 3",
-  //     date: "Date",
-  //     time: "Time",
-  //     location: "Location",
-  //   },
-  //   {
-  //     title: "Title 3",
-  //     date: "Date",
-  //     time: "Time",
-  //     location: "Location",
-  //   },
-  //   // Add more items as needed
-  // ];
 
-  // const nextSlide = () => {
-  //   setCurrentSlide((prev) => (prev + 1) % carouselItems.length);
-  // };
-
-  // const prevSlide = () => {
-  //   setCurrentSlide(
-  //     (prev) => (prev - 1 + carouselItems.length) % carouselItems.length
-  //   );
-  // };
-
+  
   return (
     <>
       <Navbar />
@@ -159,7 +137,7 @@ const InterestGroups = () => {
 
           <div className="flex  gap-4 mt-8">
             <button
-            type="button"
+              type="button"
               className={styles.primaryButton}
               onClick={() => {
                 document
@@ -169,7 +147,7 @@ const InterestGroups = () => {
               Discover More
             </button>
             <button
-            type="button"
+              type="button"
               onClick={() =>
                 window.open("https://airtable.com/shriAaNO6q4cQzKKl")
               }
@@ -186,6 +164,15 @@ const InterestGroups = () => {
               alt="Web Development Illustration"
               className={styles.mainImage}
             />
+          </div>
+        </div>
+        <div>
+          <h3 className={styles.learningTitle}>Community Partners</h3>
+
+          <div className=" flex items-center justify-center">
+            <div className="w-full ">
+              <InfiniteImageSlider images={images} speed={1} height={200} />
+            </div>
           </div>
         </div>
         <section id="features" className="w-full">
