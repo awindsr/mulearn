@@ -23,7 +23,7 @@ export const gamedev = {
       "To get started in game development, it's important to have basic computer skills, such as installing software and managing files or folders. Familiarity with programming concepts like variables, loops, and functions is helpful, with C++ knowledge being a plus but not mandatory. A basic understanding of 3D math, including vectors and transformations, is useful for working with 3D objects. Additionally, an awareness of fundamental game design principles, such as level layout and gameplay mechanics, provides a solid foundation for creating engaging games.advanced topics.",
   },
   learningPath: {
-    embedUrl: "https://roadmap.sh/r/embed?id=6757d8a6ecc889bb0da2c7f3",
+    embedUrl: "https://roadmap.sh/r/unreal-engine-5-game-developer-19rqf",
   },
   mentors: [
     {
