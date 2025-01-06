@@ -38,7 +38,7 @@ function Timeline({ timelineData, igName }) {
                 level.cards.length === 1
                   ? "grid-cols-1 place-items-center"
                   : level.cards.length === 2
-                  ? "grid-cols-2 place-items-center"
+                  ? "md:grid-cols-2  place-items-center"
                   : "grid-cols-1 md:grid-cols-3"
               }`}
               >
