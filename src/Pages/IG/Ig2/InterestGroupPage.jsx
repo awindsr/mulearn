@@ -24,9 +24,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Timeline from "./components/Timeline";
 import { InfiniteImageSlider } from "./components/InfiniteImageSlider";
 import styles from "../InterestGroups.module.css";
+import SlideTransition from "./components/SlideTransition";
+import InterestGroupRoadmap from "./InterestGroupRoadmap";
 
 export default function InterestGroupPage() {
   const { id } = useParams();
+  const [activeCard, setActiveCard] = useState(null);
+  const [isRoadmapOpen, setIsRoadmapOpen] = useState(false);
 
   // New state to hold the dynamic data
   const [data, setData] = useState(null);
@@ -34,6 +38,11 @@ export default function InterestGroupPage() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerView = ismobile ? 1 : 3;
+
+  const handleCardClick = (card) => {
+    setActiveCard(card);
+    setIsRoadmapOpen(true); // Open the roadmap when a card is clicked
+  };
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => {
@@ -123,6 +132,18 @@ export default function InterestGroupPage() {
   
     loadData();
   }, [id]);
+
+  useEffect(() => {
+    if (isRoadmapOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isRoadmapOpen]);
   
   useEffect(() => {
     const handleResize = () => {
@@ -289,12 +310,30 @@ export default function InterestGroupPage() {
               frameBorder="0"
               title="Roadmap Preview"
             /> */}
-            <Timeline />
+          <Timeline 
+              timelineData={data.roadMap} 
+              setActiveCard={setActiveCard} 
+              setIsRoadmapOpen={setIsRoadmapOpen}
+            />
+           
+
           </div>
         </div>
       </Section>
+      <SlideTransition 
+        isOpen={isRoadmapOpen} 
+        onClose={() => setIsRoadmapOpen(false)}
+      >
+        {() => (
+          <InterestGroupRoadmap 
+            roadMapData={data.roadMap}
+            activeCard={activeCard}
+            setActiveCard={setActiveCard}
+          />
+        )}
+      </SlideTransition>
 
-      <div className="max-w-7xl mx-auto space-y-4 md:space-y-8">
+      <div className="md:max-w-7xl mx-auto space-y-4 md:space-y-8">
         <Section title="Mentor Details" className="space-y-4 md:space-y-6">
           <p className="text-gray-600">
             Here to help? Our Mentors are here to help you get all your doubts

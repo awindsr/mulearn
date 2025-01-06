@@ -3,87 +3,12 @@ import { motion } from "framer-motion";
 import { LevelCard } from "./LevelCard";
 import { JumpButton } from "./JumpButton";
 
-function Timeline() {
-  const timelineData = [
-    {
-      level: "Basic",
-      cards: [
-        {
-          title: "Foundational Understanding",
-          articles: 6,
-          problems: 15,
-          rating: 0,
-          hasGift: true,
-        },
-        {
-          title: "Core Engine Skills",
-          articles: 6,
-          problems: 15,
-          rating: 0,
-          hasGift: true,
-        },
-      ],
-    },
-    {
-      level: "Intermediate",
-      cards: [
-        {
-          title: "Programming and Scripting",
-          articles: 12,
-          problems: 44,
-          rating: 0,
-          hasGift: true,
-        },
-        {
-          title: "3D Modeling and Animation",
-          articles: 6,
-          problems: 29,
-          rating: 0,
-          hasGift: true,
-        },
-        {
-          title: "Physics and Spatial Effects",
-          articles: 6,
-          problems: 29,
-          rating: 0,
-          hasGift: true,
-        },
-      ],
-    },
-    {
-      level: "Advanced",
-      cards: [
-        {
-          title: "UI/UX Design",
-          articles: 12,
-          problems: 44,
-          rating: 0,
-          hasGift: true,
-        },
-        {
-          title: "Optimization and Debugging",
-          articles: 6,
-          problems: 29,
-          rating: 0,
-          hasGift: true,
-        },
-        {
-          title: "Publishing and Testing",
-          articles: 6,
-          problems: 29,
-          rating: 0,
-          hasGift: true,
-        },
-        {
-          title: "Portfolio and Community Engagement",
-          articles: 6,
-          problems: 29,
-          rating: 0,
-          hasGift: true,
-        },
-      ],
-    },
-  ];
+function Timeline({ timelineData, setActiveCard, setIsRoadmapOpen }) {
+  const handleCardClick = (card) => {
+    setActiveCard(card);
+    setIsRoadmapOpen(true);
+  };
+
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
       {timelineData.map((level, index) => (
@@ -112,6 +37,7 @@ function Timeline() {
               {level.cards.map((card, cardIndex) => (
                 <motion.div
                   key={card.title}
+                  onClick={() => handleCardClick(card)}
                   initial={{ opacity: 0, x: cardIndex % 2 === 0 ? -20 : 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.2 + 0.4 + cardIndex * 0.2 }}>
