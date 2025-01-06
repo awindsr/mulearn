@@ -5,7 +5,7 @@ export const InfiniteImageSlider = ({
   speed = 10,
   height = 200,
 }) => {
-  const shouldScroll = images.length > 4;
+  const shouldScroll = images.length > 7;
   const { containerRef, scrollPosition } = useInfiniteScroll(speed, 320, shouldScroll);
   
   // Only duplicate images if we need to scroll

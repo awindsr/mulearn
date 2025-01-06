@@ -57,6 +57,7 @@ import Manifesto from "./Pages/Manifesto/Manifesto";
 import InterestGroups from "./Pages/IG/InterestGroups";
 import InterestGroupDetails from "./Pages/IG/Ig2/layout";
 import InterestGroupRoadmap from "./Pages/IG/Ig2/InterestGroupRoadmap";
+
 function App() {
   const [redirects, setRedirects] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -132,6 +133,7 @@ function App() {
             <Route path="/interestgroups" element={<InterestGroups />} />
             <Route path="/interestgroups/:id" element={<InterestGroupDetails />} />
             <Route path="/interestgroups/:id/roadmap" element={<InterestGroupRoadmap />} />
+            <Route path="interestgroups/:id/roadmap/:title" element={<InterestGroupRoadmap />} />
 
             <Route path="/team">
               <Route path="" element={<Teams />} />

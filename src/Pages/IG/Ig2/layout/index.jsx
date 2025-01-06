@@ -7,13 +7,13 @@ import InterestGroupPage from "../InterestGroupPage";
 
 const InterestGroupDetails = () => {
   return (
-    <div className="w-[100vw] flex flex-col overflow-hidden">
+    <div className=" flex flex-col overflow-hidden w-screen">
       <Navbar />
       <div
-        className={`${styles.roboto_font} flex items-start justify-start bg-[rgba(255,255,255,1)] w-full relative`}
+        className={`${styles.roboto_font} flex items-start justify-start bg-[rgba(255,255,255,1)] `}
       >
         <ContentsMenu />
-        <div className="flex-1 overflow-auto">
+        <div className="w-full overflow-hidden">
           <InterestGroupPage />
         </div>
       </div>

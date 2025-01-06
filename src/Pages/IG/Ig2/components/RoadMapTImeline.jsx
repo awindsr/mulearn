@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RoadMapTimeline = ({ roadMapData, setActiveCard }) => {
+const RoadMapTimeline = ({ roadMapData, handleSetCurrentCard }) => {
   return (
     <div className="max-w-2xl mx-auto p-4">
       {roadMapData.map((level, levelIndex) => (
@@ -11,7 +11,7 @@ const RoadMapTimeline = ({ roadMapData, setActiveCard }) => {
               <div 
                 key={card.title} 
                 className="mb-8 relative cursor-pointer"
-                onClick={() => setActiveCard(card)}
+                onClick={() => handleSetCurrentCard(card)}
               >
                 <div className="absolute -left-[25px] top-1 w-4 h-4 bg-orange-400 rounded-full"></div>
                 <div className="pl-6">

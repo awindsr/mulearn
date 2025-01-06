@@ -2,11 +2,18 @@
 import { motion } from "framer-motion";
 import { LevelCard } from "./LevelCard";
 import { JumpButton } from "./JumpButton";
+import { useNavigate } from "react-router-dom";
 
-function Timeline({ timelineData, setActiveCard, setIsRoadmapOpen }) {
+function Timeline({ timelineData, igName }) {
+  const navigate = useNavigate();
+
   const handleCardClick = (card) => {
-    setActiveCard(card);
-    setIsRoadmapOpen(true);
+    navigate(`roadmap/${card.title.toLowerCase().replace(/\s+/g, '-')}`, {
+      state: { roadMapData: timelineData, activeCard: card, interestGroupName: igName  }
+    });
+
+
+    console.log(igName)
   };
 
   return (
@@ -18,7 +25,7 @@ function Timeline({ timelineData, setActiveCard, setIsRoadmapOpen }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.2 }}
           className="mb-8">
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-4 ">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -32,12 +39,17 @@ function Timeline({ timelineData, setActiveCard, setIsRoadmapOpen }) {
               className={`grid gap-8 ${
                 level.cards.length === 1
                   ? "grid-cols-1 place-items-center"
-                  : "grid-cols-2"
-              }`}>
+                  : level.cards.length === 2
+                  ? "grid-cols-2 place-items-center"
+                  : "grid-cols-1 md:grid-cols-3"
+              }`}
+              >
+              
               {level.cards.map((card, cardIndex) => (
                 <motion.div
                   key={card.title}
                   onClick={() => handleCardClick(card)}
+             
                   initial={{ opacity: 0, x: cardIndex % 2 === 0 ? -20 : 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.2 + 0.4 + cardIndex * 0.2 }}>
@@ -46,9 +58,9 @@ function Timeline({ timelineData, setActiveCard, setIsRoadmapOpen }) {
               ))}
             </div>
           </div>
-          {index < timelineData.length - 1 && (
+          {/* {index < timelineData.length - 1 && (
             <JumpButton level={level.level} />
-          )}
+          )} */}
         </motion.div>
       ))}
     </div>

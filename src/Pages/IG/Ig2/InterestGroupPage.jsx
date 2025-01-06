@@ -2,7 +2,6 @@ import { Keywords } from "./components/keywords";
 import { ProfileCard } from "./components/profilecard";
 import { Section } from "./components/section";
 import fvimg from "../assets/fvimg.png";
-// import styles from "./index.module.css";
 import { BiCalendar, BiTime, BiMap } from "react-icons/bi";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -14,35 +13,33 @@ import { devops } from "../data/devops";
 import { uiuxDesign } from "../data/uiux";
 import { cybersecurity } from "../data/cybersecurity";
 import { useEffect, useState } from "react";
-// import { artificialIntelligence } from "../data/ai";
 import { arVr } from "../data/arvr";
 import { hr } from "../data/hr";
 import { digitalMarketing } from "../data/digitalmarketing";
 import { productManagement } from "../data/productmanagement";
 import { entrepreneurship } from "../data/entrepreneurship";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Timeline from "./components/Timeline";
 import { InfiniteImageSlider } from "./components/InfiniteImageSlider";
 import styles from "../InterestGroups.module.css";
-import SlideTransition from "./components/SlideTransition";
-import InterestGroupRoadmap from "./InterestGroupRoadmap";
 
 export default function InterestGroupPage() {
   const { id } = useParams();
   const [activeCard, setActiveCard] = useState(null);
-  const [isRoadmapOpen, setIsRoadmapOpen] = useState(false);
-
-  // New state to hold the dynamic data
   const [data, setData] = useState(null);
-  const [ismobile, setismobile] = useState(true);
-
+  const [isMobile, setIsMobile] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = ismobile ? 1 : 3;
+  const itemsPerView = isMobile ? 1 : 3;
+  const [images, setImages] = useState([]);
 
   const handleCardClick = (card) => {
     setActiveCard(card);
-    setIsRoadmapOpen(true); // Open the roadmap when a card is clicked
+  
   };
+
+  const handleJoinLearningCircles = () => {
+    window.open("https://app.mulearn.org", "_blank");
+  }
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => {
@@ -58,10 +55,6 @@ export default function InterestGroupPage() {
     });
   };
 
-  const [images, setImages] = useState([]);
-
-
-  // Calculate visible items based on current viewport
   const getVisibleItems = () => {
     const items = [...data.learningCircles];
     const visibleItems = [];
@@ -73,12 +66,12 @@ export default function InterestGroupPage() {
 
     return visibleItems;
   };
+
   const handleDownloadFoundationDeck = () => {
     window.open(data.introduction?.downloadLink, "_blank");
   };
 
   useEffect(() => {
-    // Load data based on the id
     const loadData = () => {
       let selectedData;
       switch (id) {
@@ -121,97 +114,84 @@ export default function InterestGroupPage() {
       
       setData(selectedData);
       
-      // If selectedData exists and has communityPartners, load their images
       if (selectedData?.communityPartners) {
         const imagePaths = selectedData.communityPartners.map(partner => partner.image);
         setImages(imagePaths);
       } else {
-        setImages([]); // Reset images if no community partners exist
+        setImages([]);
       }
     };
   
     loadData();
   }, [id]);
 
-  useEffect(() => {
-    if (isRoadmapOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isRoadmapOpen]);
+
   
   useEffect(() => {
     const handleResize = () => {
-      setismobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 768);
     };
     window.addEventListener("resize", handleResize);
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  if (!data) return <div>Loading...</div>; // Optional loading state
+  if (!data) return <div>Loading...</div>;
 
   return (
-    <div
-      className={`${styles.container} min-h-screen overflow-x-hidden w-full flex-1`}>
-      <div className="flex text-left w-full mb-8">
-        <div className={styles.contentSide}>
-          <h1 className={styles.title}>{data.title}</h1>
+    <div className={`${styles.container} min-h-screen px-4 sm:px-6 lg:px-8 w-full`}>
+      <div className="flex flex-col lg:flex-row text-left w-full mb-8">
+        <div className={`${styles.contentSide} lg:w-2/3`}>
+          <h1 className={`${styles.title} text-3xl sm:text-4xl lg:text-5xl font-bold mb-4`}>{data.title}</h1>
 
-          <p className={styles.description}>
+          <p className={`${styles.description} text-sm sm:text-base mb-4`}>
             {data.introduction?.description}
             <br />
             <span>
-              {" "}
               <a
                 href={data.introduction?.downloadLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-orange-400">
+                className="text-orange-400 hover:underline">
                 Click here
               </a>{" "}
               to download the foundation deck.
             </span>
           </p>
 
-          <div className={styles.offerInfo}>
-            <span className={styles.highlight}>Office Hours</span>{" "}
+          <div className={`${styles.offerInfo} mb-4`}>
+            <span className={`${styles.highlight} font-semibold`}>Office Hours:</span>{" "}
             {data.introduction.schedules?.officeHours || "TBA"}
             <br />
-            <span className={styles.highlight}>Think Tank Meeting</span>{" "}
+            <span className={`${styles.highlight} font-semibold`}>Think Tank Meeting:</span>{" "}
             {data.introduction.schedules?.thinkTankMeeting || "TBA"}
           </div>
 
           <button
             type="button"
-            className={styles.primaryButton}
-            onClick={handleDownloadFoundationDeck}>
-            Join learning Circles
+            className={`${styles.primaryButton} bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded`}
+            onClick={handleJoinLearningCircles}>
+            Join Learning Circles
           </button>
         </div>
-        <div
-          className={`flex-1 lg: min-w-[300px] flex justify-center items-center max-lg:hidden`}>
+        <div className="lg:w-1/3 flex justify-center items-center mt-8 lg:mt-0">
           <div className={styles.heroImage}>
             <img
               src={fvimg}
               alt="Web Development Illustration"
-              className={`${styles.mainImage}`}
+              className={`${styles.mainImage} w-full max-w-sm`}
             />
           </div>
         </div>
       </div>
+
       {data.communityPartners && (
-        <div className="py-4 md:py-8 ">
-          <h2 className="text-2xl font-bold text-[#f78c40] my-4 md:my-6 ml-0 text-left text-nowrap ">
+        <div className="py-4 md:py-8 flex items-start justify-start  flex-col">
+          <h2 className="text-2xl font-bold text-[#f78c40] my-4 md:my-6 ml-0 text-left">
             Community Partners
           </h2>
-          <div className=" flex items-center justify-center">
-            <div className="w-full ">
+          <div className="flex items-center justify-center">
+            <div className="w-full overflow-hidden">
               <InfiniteImageSlider images={images} speed={1.5} height={100} />
             </div>
           </div>
@@ -219,8 +199,8 @@ export default function InterestGroupPage() {
       )}
 
       {data.learningCircles && (
-        <div className="w-full py-4 md:py-8 md:px-8">
-          <h2 className="text-2xl font-bold text-[#f78c40] my-4 md:my-6 ml-0 text-left">
+        <div className="w-full py-4 md:py-8">
+          <h2 className="text-2xl font-bold text-[#f78c40] my-4 md:my-6 text-left">
             Learning Circles
           </h2>
 
@@ -229,9 +209,7 @@ export default function InterestGroupPage() {
               <div
                 className="flex transition-transform duration-300 ease-out gap-5"
                 style={{
-                  transform: `translateX(-${
-                    currentIndex * (100 / itemsPerView)
-                  }%)`,
+                  transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
                 }}>
                 {getVisibleItems().map((circle) => (
                   <div
@@ -239,10 +217,7 @@ export default function InterestGroupPage() {
                     className="w-full flex-shrink-0 min-w-0"
                     style={{ flex: `0 0 ${100 / itemsPerView}%` }}>
                     <div
-                      style={{
-                        boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.1)",
-                      }}
-                      className="bg-white rounded-lg p-6 m-2">
+                      className="bg-white rounded-lg p-6 m-2 shadow-lg">
                       <h3 className="text-xl font-semibold mb-2">
                         {circle.title}
                       </h3>
@@ -288,52 +263,27 @@ export default function InterestGroupPage() {
       )}
 
       <Section
-        className="text-left flex flex-col justify-start items-start py-4 md:py-8 space-y-4 md:space-y-8"
+        className="w-full text-left flex flex-col justify-start items-start py-4 md:py-8 space-y-4 md:space-y-8"
         title="Pre-requisites">
         <p className="text-gray-600">{data.prerequisites.description}</p>
-        {/* <p className="text-gray-600">
-          {data.prerequisites?.map((prerequisite) => (
-            <span key={prerequisite} className="text-gray-600">
-              {prerequisite},{" "} 
-            </span>
-          ))}
-        </p> */}
       </Section>
 
       <Section className="w-full" title="Learning Path">
-        <div className=" max-w-6xl mx-auto px-4 py-8">
+        <div className="max-w-6xl mx-auto py-8">
           <div className="w-full border rounded-lg overflow-hidden bg-white">
-            {/* <iframe
-              src={data.learningPath?.embedUrl}
-              width="100%"
-              height="900px"
-              frameBorder="0"
-              title="Roadmap Preview"
-            /> */}
-          <Timeline 
+            <Timeline 
               timelineData={data.roadMap} 
-              setActiveCard={setActiveCard} 
-              setIsRoadmapOpen={setIsRoadmapOpen}
+              setActiveCard={handleCardClick} 
+              igName = {data.title}
+            
             />
-           
-
           </div>
         </div>
       </Section>
-      <SlideTransition 
-        isOpen={isRoadmapOpen} 
-        onClose={() => setIsRoadmapOpen(false)}
-      >
-        {() => (
-          <InterestGroupRoadmap 
-            roadMapData={data.roadMap}
-            activeCard={activeCard}
-            setActiveCard={setActiveCard}
-          />
-        )}
-      </SlideTransition>
 
-      <div className="md:max-w-7xl mx-auto space-y-4 md:space-y-8">
+    
+
+      <div className=" space-y-4 md:space-y-8 w-full">
         <Section title="Mentor Details" className="space-y-4 md:space-y-6">
           <p className="text-gray-600">
             Here to help? Our Mentors are here to help you get all your doubts
@@ -362,8 +312,8 @@ export default function InterestGroupPage() {
             </div>
           </Section>
 
-          <Section title="Interest Group Leaderboard">
-            <p className="text-gray-600">
+          <Section title="Interest Group Leaderboard " className="">
+            <p className="text-gray-600 ">
               Stay engaged and climb the leaderboard as you complete projects
               and participate in discussions.
             </p>
@@ -373,7 +323,7 @@ export default function InterestGroupPage() {
           </Section>
         </div>
 
-        <div className="grid gap-4 md:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        <div className="w-full grid gap-4 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           <Section title="Opportunities">
             <p className="text-gray-600">
               Getting a new skill always brings in possible opportunities. Here
@@ -401,8 +351,8 @@ export default function InterestGroupPage() {
                   <a
                     href={person.link}
                     className="text-[#ff6b00] hover:underline">
-                    click here
-                  </a>
+                      click here
+                    </a>
                 </li>
               ))}
             </ul>
@@ -440,3 +390,4 @@ export default function InterestGroupPage() {
     </div>
   );
 }
+
