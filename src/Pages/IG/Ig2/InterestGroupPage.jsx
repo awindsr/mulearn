@@ -25,17 +25,13 @@ import styles from "../InterestGroups.module.css";
 
 export default function InterestGroupPage() {
   const { id } = useParams();
-  const [activeCard, setActiveCard] = useState(null);
   const [data, setData] = useState(null);
   const [isMobile, setIsMobile] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerView = isMobile ? 1 : 3;
   const [images, setImages] = useState([]);
 
-  const handleCardClick = (card) => {
-    setActiveCard(card);
   
-  };
 
   const handleJoinLearningCircles = () => {
     window.open("https://app.mulearn.org", "_blank");
@@ -67,9 +63,6 @@ export default function InterestGroupPage() {
     return visibleItems;
   };
 
-  const handleDownloadFoundationDeck = () => {
-    window.open(data.introduction?.downloadLink, "_blank");
-  };
 
   useEffect(() => {
     const loadData = () => {
@@ -273,7 +266,6 @@ export default function InterestGroupPage() {
           <div className="w-full border rounded-lg overflow-hidden bg-white">
             <Timeline 
               timelineData={data.roadMap} 
-              setActiveCard={handleCardClick} 
               igName = {data.title}
             
             />

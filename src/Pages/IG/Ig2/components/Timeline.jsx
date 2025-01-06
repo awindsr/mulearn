@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { LevelCard } from "./LevelCard";
-import { JumpButton } from "./JumpButton";
 import { useNavigate } from "react-router-dom";
 
 function Timeline({ timelineData, igName }) {
@@ -11,10 +10,9 @@ function Timeline({ timelineData, igName }) {
     navigate(`roadmap/${card.title.toLowerCase().replace(/\s+/g, '-')}`, {
       state: { roadMapData: timelineData, activeCard: card, interestGroupName: igName  }
     });
-
-
-    console.log(igName)
   };
+
+ 
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
