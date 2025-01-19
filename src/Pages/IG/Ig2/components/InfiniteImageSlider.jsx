@@ -39,7 +39,7 @@ export const InfiniteImageSlider = ({ images, speed = 10, height = 200 }) => {
         }}
       >
         {displayImages.map((src, index) => (
-          <div key={index} className="flex-shrink-0 h-[100px]">
+          <div key={index} className="flex-shrink-0 h-[50px] md:h-[100px] ">
             <img
               src={src}
               alt={`Slide ${index + 1}`}
