@@ -28,7 +28,7 @@ export function LevelCard({ card }) {
           </div>
           <div className="text-center">
             <div className="text-lg font-semibold">{card.proofOfWork}</div>
-            <div className="text-sm text-gray-600">Proof of Works</div>
+            <div className="text-sm text-gray-600">Challenges</div>
           </div>
         </div>
       </div>

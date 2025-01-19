@@ -3,6 +3,7 @@ import { useLocation, Navigate } from "react-router-dom";
 import RoadMapTimeline from "./components/RoadMapTImeline";
 import Navbar from "../../../Components/Navbar/Navbar";
 import Footer from "../../../Components/Footer/Footer";
+import { Heart } from "lucide-react";
 
 export default function InterestGroupRoadmap() {
   const location = useLocation();
@@ -12,7 +13,6 @@ export default function InterestGroupRoadmap() {
   function handleSetCurrentCard(card) {
     setCurrentCard(card);
   }
-
 
   if (!roadMapData || !activeCard) {
     return <Navigate to="/" replace />;
@@ -58,7 +58,9 @@ export default function InterestGroupRoadmap() {
                   Challenges
                 </h2>
                 {currentCard?.data?.challenges.map((challenge, index) => (
-                  <div key={index} className="border-t border-gray-200 w-full  first:mt-0 first:border-t-0">
+                  <div
+                    key={index}
+                    className="border-t border-gray-200 w-full  first:mt-0 first:border-t-0">
                     <h3 className="bg-orange-400 p-3 sm:p-4 text-left font-medium text-white text-sm sm:text-base">
                       {challenge.title}
                     </h3>
@@ -66,11 +68,39 @@ export default function InterestGroupRoadmap() {
                       {challenge.description}
                     </p>
                     <ul className="p-3 sm:p-4 space-y-2">
-                      {challenge.resources.map((resource, resourceIndex) => (
-                        <li key={resourceIndex} className="text-sm sm:text-base">
-                          <span className="text-orange-400 font-semibold">Resource {resourceIndex + 1}</span>: {resource}
-                        </li>
-                      ))}
+                      {challenge.resources?.length > 0 && (
+                        <>
+                          <p className="px-4 py-1 border border-orange-400 text-orange-400 flex items-center justify-center w-36 rounded-full text-sm gap-2">
+                            <Heart size={16} /> Resources
+                          </p>
+                          <li className="text-sm sm:text-base flex gap-2 flex-wrap">
+                            {challenge.resources.map((resource, index) => {
+                              const domain = (() => {
+                                try {
+                                  const hostname = new URL(resource).hostname.replace(/^www\./, '');
+                                  // Special case for YouTube URLs
+                                  if (hostname.includes('youtu.be') || hostname.includes('youtube')) {
+                                    return 'youtube.com';
+                                  }
+                                  return hostname;
+                                } catch {
+                                  return 'Invalid URL';
+                                }
+                              })();
+
+                              return (
+                                <a
+                                  key={index}
+                                  aria-label={`Visit ${domain}`}
+                                  href={resource}
+                                  className="text-black  border bg-green-300 hover:bg-green-400 text-sm px-2 py-1 rounded-md">
+                                  {domain}
+                                </a>
+                              );
+                            })}
+                          </li>
+                        </>
+                      )}
                     </ul>
                   </div>
                 ))}
@@ -83,4 +113,3 @@ export default function InterestGroupRoadmap() {
     </div>
   );
 }
-

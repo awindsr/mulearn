@@ -19,7 +19,7 @@ const RoadMapTimeline = ({ roadMapData, handleSetCurrentCard }) => {
                     {card.title}
                   </h3>
                   <p className="text-sm text-gray-600">
-                    Resources: {card.resources} | Proof of Work: {card.proofOfWork}
+                    Resources: {card.resources} | Challenges: {card.proofOfWork}
                   </p>
                   <button 
                     className="text-blue-500 hover:underline"

@@ -15,13 +15,15 @@ import { cybersecurity } from "../data/cybersecurity";
 import { useEffect, useState } from "react";
 import { arVr } from "../data/arvr";
 import { hr } from "../data/hr";
+import { ai } from "../data/ai";
 import { digitalMarketing } from "../data/digitalmarketing";
 import { productManagement } from "../data/productmanagement";
 import { entrepreneurship } from "../data/entrepreneurship";
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Timeline from "./components/Timeline";
 import { InfiniteImageSlider } from "./components/InfiniteImageSlider";
 import styles from "../InterestGroups.module.css";
+import { iot } from "../data/IoT";
 
 export default function InterestGroupPage() {
   const { id } = useParams();
@@ -31,11 +33,9 @@ export default function InterestGroupPage() {
   const itemsPerView = isMobile ? 1 : 3;
   const [images, setImages] = useState([]);
 
-  
-
   const handleJoinLearningCircles = () => {
     window.open("https://app.mulearn.org", "_blank");
-  }
+  };
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => {
@@ -63,7 +63,6 @@ export default function InterestGroupPage() {
     return visibleItems;
   };
 
-
   useEffect(() => {
     const loadData = () => {
       let selectedData;
@@ -79,6 +78,12 @@ export default function InterestGroupPage() {
           break;
         case "cloud-and-devops":
           selectedData = devops;
+          break;
+        case "internet-of-things":
+          selectedData = iot;
+          break;
+        case "artificial-intelligence":
+          selectedData = ai;
           break;
         case "cybersecurity":
           selectedData = cybersecurity;
@@ -104,22 +109,22 @@ export default function InterestGroupPage() {
         default:
           selectedData = null;
       }
-      
+
       setData(selectedData);
-      
+
       if (selectedData?.communityPartners) {
-        const imagePaths = selectedData.communityPartners.map(partner => partner.image);
+        const imagePaths = selectedData.communityPartners.map(
+          (partner) => partner.image
+        );
         setImages(imagePaths);
       } else {
         setImages([]);
       }
     };
-  
+
     loadData();
   }, [id]);
 
-
-  
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -132,10 +137,14 @@ export default function InterestGroupPage() {
   if (!data) return <div>Loading...</div>;
 
   return (
-    <div className={`${styles.container} min-h-screen px-4 sm:px-6 lg:px-8 w-full`}>
+    <div
+      className={`${styles.container} min-h-screen px-4 sm:px-6 lg:px-8 w-full`}>
       <div className="flex flex-col lg:flex-row text-left w-full mb-8">
         <div className={`${styles.contentSide} lg:w-2/3`}>
-          <h1 className={`${styles.title} text-3xl sm:text-4xl lg:text-5xl font-bold mb-4`}>{data.title}</h1>
+          <h1
+            className={`${styles.title} text-3xl sm:text-4xl lg:text-5xl font-bold mb-4`}>
+            {data.title}
+          </h1>
 
           <p className={`${styles.description} text-sm sm:text-base mb-4`}>
             {data.introduction?.description}
@@ -153,10 +162,14 @@ export default function InterestGroupPage() {
           </p>
 
           <div className={`${styles.offerInfo} mb-4`}>
-            <span className={`${styles.highlight} font-semibold`}>Office Hours:</span>{" "}
+            <span className={`${styles.highlight} font-semibold`}>
+              Office Hours:
+            </span>{" "}
             {data.introduction.schedules?.officeHours || "TBA"}
             <br />
-            <span className={`${styles.highlight} font-semibold`}>Think Tank Meeting:</span>{" "}
+            <span className={`${styles.highlight} font-semibold`}>
+              Think Tank Meeting:
+            </span>{" "}
             {data.introduction.schedules?.thinkTankMeeting || "TBA"}
           </div>
 
@@ -179,16 +192,15 @@ export default function InterestGroupPage() {
       </div>
 
       {data.communityPartners && (
-        <div className="py-4 md:py-8 flex items-start justify-start  flex-col">
-          <h2 className="text-2xl font-bold text-[#f78c40] my-4 md:my-6 ml-0 text-left">
-            Community Partners
-          </h2>
+        <Section
+          className="w-full text-left flex flex-col justify-start items-start py-4 md:py-8 space-y-4 md:space-y-8"
+          title="Community Partners">
           <div className="flex items-center justify-center">
             <div className="w-full overflow-hidden">
               <InfiniteImageSlider images={images} speed={1.5} height={100} />
             </div>
           </div>
-        </div>
+        </Section>
       )}
 
       {data.learningCircles && (
@@ -202,15 +214,16 @@ export default function InterestGroupPage() {
               <div
                 className="flex transition-transform duration-300 ease-out gap-5"
                 style={{
-                  transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
+                  transform: `translateX(-${
+                    currentIndex * (100 / itemsPerView)
+                  }%)`,
                 }}>
                 {getVisibleItems().map((circle) => (
                   <div
                     key={circle.id}
                     className="w-full flex-shrink-0 min-w-0"
                     style={{ flex: `0 0 ${100 / itemsPerView}%` }}>
-                    <div
-                      className="bg-white rounded-lg p-6 m-2 shadow-lg">
+                    <div className="bg-white rounded-lg p-6 m-2 shadow-lg">
                       <h3 className="text-xl font-semibold mb-2">
                         {circle.title}
                       </h3>
@@ -261,19 +274,15 @@ export default function InterestGroupPage() {
         <p className="text-gray-600">{data.prerequisites.description}</p>
       </Section>
 
-      <Section className="w-full" title="Learning Path">
-        <div className="max-w-6xl mx-auto py-8">
-          <div className="w-full border rounded-lg overflow-hidden bg-white">
-            <Timeline 
-              timelineData={data.roadMap} 
-              igName = {data.title}
-            
-            />
+      {data.roadMap && (
+        <Section className="w-full" title="Learning Path">
+          <div className="max-w-6xl mx-auto py-8">
+            <div className="w-full border rounded-lg overflow-hidden bg-white">
+              <Timeline timelineData={data.roadMap} igName={data.title} />
+            </div>
           </div>
-        </div>
-      </Section>
-
-    
+        </Section>
+      )}
 
       <div className=" space-y-4 md:space-y-8 w-full">
         <Section title="Mentor Details" className="space-y-4 md:space-y-6">
@@ -343,8 +352,8 @@ export default function InterestGroupPage() {
                   <a
                     href={person.link}
                     className="text-[#ff6b00] hover:underline">
-                      click here
-                    </a>
+                    click here
+                  </a>
                 </li>
               ))}
             </ul>
@@ -382,4 +391,3 @@ export default function InterestGroupPage() {
     </div>
   );
 }
-
