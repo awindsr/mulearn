@@ -100,7 +100,7 @@ const images = [
   "/assets/IG/AI/Community Partners/Pathway.jpg",
 ];
 
-const InterestGroups: React.FC = () => {
+const InterestGroups = () => {
   const scrollToCategories = () => {
     document.getElementById("categories")?.scrollIntoView({ behavior: "smooth" });
   };
