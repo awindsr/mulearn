@@ -11,6 +11,7 @@ import MuLoader from "@/MuLearnComponents/MuLoader/MuLoader";
 import { dashboardRoutes } from "@/MuLearnServices/urls";
 import { privateGateway } from "@/MuLearnServices/apiGateways";
 import { UserProfile, useUserStore } from "/src/ZustandProvider";
+import { sendRefreshToken } from "@/modules/utils/cdr";
 
 interface CrateType {
   navigate: (channelId: string) => void;
@@ -84,6 +85,7 @@ const DashboardRootLayout = (props: { component?: any }) => {
         // }
       } finally {
         setIsLoading(false);
+        sendRefreshToken();
       }
     };
 
